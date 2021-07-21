@@ -1,5 +1,7 @@
-num = int(input())
-sum = 0
-for i in range(1,num+1):
-    sum += i
-print(sum)
+def my_avg(*nums):
+    sum = 0
+    for i in nums:
+        sum += i
+    return sum/len(nums)
+
+print(my_avg(77,83,95,80,70))
