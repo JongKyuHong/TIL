@@ -30,14 +30,14 @@ t = int(input())
 for _ in range(t):
     n = int(input())
     array = []
-    count = 0
+    count = 1
     for _ in range(n):
         array.append(list(map(int,input().split())))
-    array.sort(key=lambda x: -x[0])
-    for i in range(len(array)):
-        for j in range(i+1,len(array)):
-            if array[i][1] > array[j][1]:
-                count += 1
-                break
-    print()
-    print(n - count)
+    array.sort(key=lambda x: x[0])
+    mina = array[0][1]
+
+    for i in range(1,n):
+        if array[i][1] < mina:
+            mina = array[i][1]
+            count += 1
+    print(count)

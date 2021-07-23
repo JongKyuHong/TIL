@@ -10,20 +10,13 @@ def check(num):
 
 def solution(numbers):
     answer = []
-    lista = []
-    for i in numbers:
-        lista.append(i)
-    a = list(map(''.join,permutations(lista,len(lista))))
-    print(a)
-    for i in a:
-        if check(int(i)):
-            answer.append(i)
-    for i in numbers:
-        if i == '0':
-            continue
-        elif check(int(i)):
-            answer.append(i)
-    return len(set(answer))
+    for i in range(1,len(numbers)+1):
+        perlist = list(map(''.join,permutations(list(numbers),i)))
+        for k in list(set(perlist)):
+            if check(int(k)):
+                answer.append(int(k))
+    answer = len(set(answer))
+    return answer
 
 print(solution("17"))
 

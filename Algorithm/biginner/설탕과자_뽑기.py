@@ -9,7 +9,6 @@ for _ in range(n):
         else:
             grid[x-1+j][y-1] = 1
 
-
 for i in grid:
     for j in i:
         print(j, end=' ')

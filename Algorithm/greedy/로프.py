@@ -4,7 +4,6 @@ n = int(input())
 rope = []
 for _ in range(n):
     rope.append(int(input()))
-print(rope)
 rope.sort()
 queue = deque(rope)
 target =  queue.popleft() * n
