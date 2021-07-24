@@ -1,38 +1,39 @@
 import heapq
 
 T = int(input())
-array = []
+pn = []
+nn = []
+en = []
 for _ in range(T):
-    heapq.heappush(array,int(input()))
-answer = 0
-i = 0 
-if len(array)%2:
-    print(array)
-    exit(0)
-    while len(array) > 1:
-        element = heapq.heappop(array)
-        element2 = heapq.heappop(array)
-        if i == 0 and element <= 0 and element2 <= 0:
-            answer += element*element2
-        elif i == 0 and element < 0 and element2 > 0:
-            answer += element
-            element = heapq.heappop(array)
-        if (element <  0 and element2 > 0) or (element > 0 and element2 < 0):
-            answer += element+element2
-        elif (element < 0 and element2 == 0) or (element == 0 and element2 < 0):
-            answer += element*element2
-        else:
-            answer += element*element2
-        i += 1
+    number=int(input())
+    if number>1:
+        pn.append(number)
+    elif number<0:
+        nn.append(number)
+    else:
+        en.append(number)
+pn.sort(reverse=True)
+nn.sort()
+result = 0
+if len(pn)%2 == 0:
+    for i in range(0,len(pn)-1,2):
+        result += pn[i]*pn[i+1]
 else:
-    while len(array) > 1:
-        element = heapq.heappop(array)
-        element2 = heapq.heappop(array)
-        if element*element2 < 0:
-            answer += element+element2
-        else:
-            answer += element*element2
+    for i in range(0,len(pn)-1,2):
+        result += pn[i]*pn[i+1]
+    result += pn[-1]
 
-if len(array) >= 1:
-    answer += heapq.heappop(array)
-print(answer)
+if len(nn)%2 == 0:
+    for i in range(0,len(nn)-1,2):
+        result += nn[i]*nn[i+1]
+else:
+    for i in range(0,len(nn)-1,2):
+        result += nn[i]*nn[i+1]
+    if 0 not in en:
+        result += nn[-1]
+result += sum(en)
+print(result)
+
+
+
+
