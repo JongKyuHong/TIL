@@ -10,5 +10,3 @@ while i<len(array):
             continue
     i += 1
 print(count)
-
-

@@ -7,7 +7,6 @@ for _ in range(n):
 array.reverse()
 queue = deque(array)
 cnt = 0
-print(queue)
 while len(queue) >= 2:
     a = queue.popleft()
     b = queue.popleft()

@@ -1,6 +1,6 @@
 from collections import deque
 a, b = map(int,input().split())
-count = 0
+count = -1
 queue = deque([(a,1)])
 
 while queue:
@@ -13,10 +13,3 @@ while queue:
     if int(str(i)+'1') <=b:
         queue.append((int(str(i)+'1'),cnt+1))
 print(count)
-
-        
-
-
-
-
-
