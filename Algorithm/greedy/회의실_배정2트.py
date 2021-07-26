@@ -3,6 +3,7 @@ array = []
 for _ in range(n):
     array.append(list(map(int,input().split())))
 array = sorted(array,key=lambda x: (x[1],x[0]))
+print(array)
 ans = end= 0
 for s,e in array:
     if s >= end:
