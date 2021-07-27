@@ -1,10 +1,15 @@
-def count_blood(blood):
-    dict = {}
-    dict['A'] = blood.count('A')
-    dict['AB'] = blood.count('AB')
-    dict['B'] = blood.count('B')
-    dict['O'] = blood.count('O')
-    return dict
+def lonely(list):
+    dw = 0
+    new_list = []
+    for i in list:
+        if dw == i:
+            continue
+        else:
+            new_list.append(i)
+            dw=i
+    return new_list
+            
 
-
-print(count_blood(['A','B','A','O','AB','AB','O','A','B','O','B','AB',]))
+    
+print(lonely([1,1,3,3,0,1,1]))
+print(lonely([4,4,4,3,3]))
