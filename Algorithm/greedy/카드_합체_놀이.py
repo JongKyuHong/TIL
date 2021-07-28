@@ -10,6 +10,3 @@ while m > 0:
     heapq.heappush(state,a+b)
     m -= 1
 print(sum(state))
-
-
-

@@ -1,13 +1,11 @@
-id = input()
-new_data = ''
-check = 0
-for i in id:
-    if i.isupper():
-        new_data += i
+new_data = input()
 
+check = 0
+ch_u = 0
 for j in new_data:
-    if j == 'U':
+    if j == 'U' and ch_u == 0:
         check += 1
+        ch_u += 1
     elif j == 'C' and check == 1:
         check += 1
     elif j == 'P' and check == 2:
