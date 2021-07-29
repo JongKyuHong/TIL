@@ -17,11 +17,9 @@ while end <= (11,30) and i<n: # 모든 리스트를 다봤을때 , end값이 11�
             break
         if temp < array[j][1]:
             temp = array[j][1]
-            print(temp,j)
             i = j
             flag = 1
     if flag == 1:  # 변했을때
-        print(temp)
         end = temp 
         result.append(array[i])  #결과 리스트에 아무값이나 추가(결과가 바뀌었다는 소리)
     else:

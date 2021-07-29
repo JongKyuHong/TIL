@@ -10,7 +10,7 @@ for _ in range(n):
 bag = []
 for _ in range(k):
     capacity = int(sys.stdin.readline())
-    heapq.heappush(gem,capacity)
+    heapq.heappush(bag,capacity)
 total_value = 0
 capable_gem = []
 for _ in range(k):
