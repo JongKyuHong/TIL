@@ -5,7 +5,6 @@ for _ in range(n):
     array.append(list(map(int,input().split())))
 array.sort()
 
-sum = 0
 start_point = array[0][0] + array[0][1]
 for i in range(1,n):
     if start_point > array[i][0]:
