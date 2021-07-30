@@ -9,6 +9,6 @@ for i in range(len(array)):
         result += array[i]
     else:
         break
-print(result)
+print(result+1)
 
 

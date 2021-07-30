@@ -14,4 +14,4 @@ else:
         card2 = heapq.heappop(money)
         answer += card1+card2
         heapq.heappush(money,card1+card2)
-print(answer)
+    print(answer)

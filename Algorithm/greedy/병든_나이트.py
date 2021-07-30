@@ -13,7 +13,7 @@ def check(x,y):
             if i == 0:
                 array[x-1][y] = 1
                 array[x-2][y] = 1
-                array[x-2][y] = 1
+                array[x-2][y+1] = 1
                 check(nx,ny)
             elif i == 1:
                 array[x-1][y] = 1

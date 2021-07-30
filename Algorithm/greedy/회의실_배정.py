@@ -16,7 +16,6 @@ else:
             count1 = len(array)
             break
     array.sort()
-    print(array)
     count = 1
     for i in range(count1):
         result = [array[i]]

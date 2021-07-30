@@ -9,3 +9,4 @@ while 1:
     else:
         sum += V%P
     print(f'Case {i}:', sum)
+    i+=1
