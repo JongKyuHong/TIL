@@ -11,8 +11,3 @@ for i in range(n):
     else:
         sum += array[i]-i
 print(sum)
-
-
-
-
-
