@@ -19,4 +19,3 @@ for _ in range(t):
     result.append(cnt)
 for i in result:
     print(i)
-
