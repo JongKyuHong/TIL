@@ -1,25 +1,25 @@
 import heapq
-import sys
 
 n,k = map(int,input().split())
-
-gem = []
+array_j = []
 for _ in range(n):
-    weight,value = map(int,sys.stdin.readline().split())
-    heapq.heappush(gem,[weight,value])
-bag = []
+    heapq.heappush(array_j,list(map(int,input().split()))) # 무게, 가격
+
+bags = []
 for _ in range(k):
-    capacity = int(sys.stdin.readline())
-    heapq.heappush(bag,capacity)
-total_value = 0
-capable_gem = []
+    heapq.heappush(bags,int(input()))
+
+new_array = []
+cnt = 0
 for _ in range(k):
-    capacity = heapq.heappop(bag)
-    while gem and capacity >= gem[0][0]:
-        weight,value = heapq.heappop(gem)
-        heapq.heappush(capable_gem,-value)
-    if capable_gem:
-        total_value -= heapq.heappop(capable_gem)
-    elif not gem:
+    bag = heapq.heappop(bags)
+    print(bag)
+    print(array_j)
+    while array_j and bag >= array_j[0][0]:
+        m,v = heapq.heappop(array_j)
+        heapq.heappush(new_array,-v)
+    if new_array:
+        cnt -= heapq.heappop(new_array)
+    elif not array_j:
         break
-print(total_value)
+print(cnt)
