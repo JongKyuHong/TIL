@@ -5,7 +5,6 @@ for _ in range(n):
     array.append([sub1,sub2])
 
 array.sort(key=lambda x:(x[1]))
-print(array)
 cnt = 0
 while k > 0 and array:
     sub1, sub2 = array.pop(0)
@@ -17,4 +16,3 @@ while k > 0 and array:
         k -= 1
 
 print(cnt)
-
