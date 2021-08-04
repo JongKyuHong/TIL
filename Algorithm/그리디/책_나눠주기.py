@@ -14,6 +14,6 @@ for _ in range(t):
         for i in range(a,b+1):
             if new_array[i] == 0:
                 cnt += 1
-                new_array[i] = 1
+                array[i] = 1
                 break
     print(cnt)

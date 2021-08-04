@@ -13,6 +13,8 @@ new_array = []
 cnt = 0
 for _ in range(k):
     bag = heapq.heappop(bags)
+    print(bag)
+    print(array_j)
     while array_j and bag >= array_j[0][0]:
         m,v = heapq.heappop(array_j)
         heapq.heappush(new_array,-v)
