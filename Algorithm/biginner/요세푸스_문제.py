@@ -8,16 +8,9 @@ result = []
 while a:
     for i in range(k):
         a1 = a.popleft()
-        if i != k-1:
-            a.append(a1)
-        else:
+        if i == k-1:
             result.append(a1)
+        else:
+            a.append(a1)
 
-for i in range(n):
-    if i == 0:
-        print("<",end="")
-        print(result[i],end=", ")
-    elif i == n-1:
-        print(result[i],end=">")
-    else:
-        print(result[i],end=", ")
+print(f"<{', '.join(map(str,result))}>")
