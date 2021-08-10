@@ -30,8 +30,7 @@ def check2(array):
 
 array = [i for i in range(1,n+1)]
 array = list(itertools.permutations(array))
-print(len(array))
-exit(0)
+
 for i in array:
     if check(i):
         if check2(i):

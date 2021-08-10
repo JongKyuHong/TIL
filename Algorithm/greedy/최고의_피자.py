@@ -7,10 +7,12 @@ for _ in range(n): # 각 토핑의 열량
 d.sort(reverse=True)
 cnt = 0
 maxa = 0
-print(c)
-for i in range(n):
-    cnt += 1
-    if maxa < (c+d[i])/(a+(b*cnt)):
-        maxa = (c+d[i])/(a+(b*cnt))
-        c += d[i]
-print(int(maxa))
+if (c+d[0])/(a+b) < c/a:
+    print(int(c/a))
+else:
+    for i in range(n):
+        cnt += 1
+        if maxa < (c+d[i])/(a+(b*cnt)):
+            maxa = (c+d[i])/(a+(b*cnt))
+            c += d[i]
+    print(int(maxa))
