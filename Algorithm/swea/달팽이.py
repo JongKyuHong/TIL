@@ -7,6 +7,13 @@ dc = [1, 0, -1, 0]
 for test_case in range(1,t+1):
     n = int(input())
     array = [[map(int,input().split())] for _ in range(n)]
+    new_array = []
+    for i in array:
+        for j in i:
+            new_array.append(j)
+    new_array.sort()
+    
+
     r, c = 0, 0
     dist = 0
 

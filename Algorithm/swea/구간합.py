@@ -13,8 +13,6 @@ for test_case in range(1,t+1):
             b1 += array[j]
         a = max(a,a1)
         b = min(b,b1)
-    print(a)
-    print(b)
     cnt = a-b
     print(f'#{test_case} {cnt}')
 

@@ -8,6 +8,6 @@ for test_case in range(1,t+1):
     for i in set(n_input):
         maxa = max(maxa,m_input.count(i))
     print(f'#{test_case} {maxa}')
-
+    
 
 
