@@ -10,8 +10,7 @@ def dfs(y,x):
             if data[ny][nx] == 3:  # 다음장소가 도착지라면 리턴
                 res = 1
                 return
-            
-    
+
 t = int(input())
 for test_case in range(1,t+1):
     n = int(input())

@@ -16,3 +16,6 @@
 #                 minIndex = j
 #         list[i], list[minIndex] = list[minIndex], list[i]
 #     return list[k-1]
+
+
+
