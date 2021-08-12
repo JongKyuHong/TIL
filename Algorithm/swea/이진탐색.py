@@ -1,30 +1,31 @@
 t = int(input())
 
+def binary_search(target):
+    start = 1
+    end = p
+    cnt = 0
+    while start<end:
+        cnt += 1
+        mid = int((start+end)/2)
+        if mid > target:
+            end = mid
+        elif mid < target:
+            start = mid
+        else:
+            break
+    return cnt
+
 for test_case in range(1,t+1):
     p,a,b = map(int,input().split())
-    check = [a,b]
-    result = []
-    for i in range(2):
-        start = 1
-        end = p
-        cnt = 0
-        while end > start:
-            mid = int((end+start)/2)
-            cnt += 1
-            if mid > check[i]:
-                end = mid
-            elif mid < check[i]:
-                start = mid
-            else:
-                break
-        result.append(cnt)
-    if result[0] < result[1]:
-        print(f'#{test_case} A')
-    elif result[0] > result[1]:
-        print(f'#{test_case} B')
+    cnt1 = binary_search(a)
+    cnt2 = binary_search(b)
+    print(f'#{test_case}',end=' ')
+    if cnt1 > cnt2:
+        print('B')
+    elif cnt1 < cnt2:
+        print('A')
     else:
-        print(f'#{test_case} 0')
+        print('0')
 
 
-
-
+    

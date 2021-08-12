@@ -4,28 +4,41 @@
 
 # n = len(arr)
 
-# for i in range(1<<n):
-#     for j in range(n+1):
-#         if i & (1<<j):
-#             print(arr[j],end=', ')
-#     print()
-# print()
+# import itertools as it
+
+# t = int(input())
+
+# for test_case in range(1,t+1):
+#     n,k = map(int,input().split())
+#     array = [i for i in range(1,13)]
+#     result = it.combinations(array,n)
+#     cnt = 0
+#     for i in result:
+#         if sum(i) == k:
+#             cnt += 1
+#     print(f'#{test_case} {cnt}')
+import sys
+sys.stdin = open('input.txt')
+
 t = int(input())
 
 
-def check(arr): 
-    n = len(arr)
-    for i in range(1,1<<n):
+def check(array,n,k): 
+    length = len(array)
+    for i in range(1,1<<length):
         cnt = 0
-        for j in range(n):
+        a = []
+        for j in range(length):
             if i & (1<<j):
-                cnt += arr[j]
-        if cnt == 0:
-            return True
-    return False
+                a.append(array[j])
+                cnt += array[j]
+        if cnt == k and len(a)==n:
+            return 1
+    return 0
 
 for test_case in range(1,t+1):
-    arr = list(map(int,input().split()))
-    print(check(arr))
+    n,k = map(int,input().split())
+    array = list(range(1,13))
+    print(f'#{test_case}', check(array,n,k))
 
 

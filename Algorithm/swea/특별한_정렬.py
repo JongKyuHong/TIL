@@ -13,11 +13,3 @@ for test_case in range(1,t+1):
             new_array.append(array.pop(0))
         cnt -= 1
     print(f'#{test_case}', *new_array)
-
-
-
-
-
-
-
- 
