@@ -1,5 +1,5 @@
 
-for _ in range(1,2):
+for _ in range(1,11):
     tc = int(input())
     array = [list(map(int,input().split())) for _ in range(100)]
     x,y = array[99].index(2), 99  # 도착지점을 먼저 찾음
