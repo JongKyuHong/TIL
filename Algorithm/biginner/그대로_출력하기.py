@@ -1,10 +1,10 @@
 import sys
 
 while 1:
-    a = sys.stdin.readline()
-    if a:
-        print(a,end='')
-    else:
+    try:
+        a = input()
+        print(a)
+    except:
         break
 
 
