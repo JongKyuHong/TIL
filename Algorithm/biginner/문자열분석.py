@@ -1,5 +1,7 @@
+import sys
+
 while 1:
-    n = input().rstrip('\n')
+    n = sys.stdin.readline().rstrip('\n')
     if not n:
         break
     cnt1, cnt2, cnt3, cnt4 = 0, 0, 0, 0

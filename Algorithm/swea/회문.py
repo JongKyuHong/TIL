@@ -17,8 +17,11 @@ for test_case in range(1,t+1):
     for j in hwe:
         print(j,end='')
     print()
-
-    
+aaabb
+caweb
+asuhb
+zxcvn
+mktmi
                         
     
         

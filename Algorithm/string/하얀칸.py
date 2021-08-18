@@ -1,5 +1,4 @@
 array = [input() for _ in range(8)]
-print(array)
 ans = 0
 for i in range(8):
     if i % 2 == 0:

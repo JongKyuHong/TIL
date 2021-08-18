@@ -17,5 +17,3 @@ def failure(pattern): # aaaaa
 n = int(sys.stdin.readline())
 pat = sys.stdin.readline().rstrip() # aaaaa
 print(n - failure(pat)[n-1]) # aaaaa (5- failure(aaaaa)[4])
-
-
