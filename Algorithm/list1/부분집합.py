@@ -19,3 +19,24 @@
 # print()
 
 # 10개의 정수를 입력받아 부분집합의 합이 0이 되는 것이 존재하는지 계산하는 함수를 짜보자
+
+# import sys
+# sys.stdin = open('input.txt')
+
+# t = int(input())
+
+
+# def check(arr):
+#     n = len(arr)
+#     for i in range(1,1<<n):
+#         cnt = 0
+#         for j in range(n):
+#             if i & (1<<j):
+#                 cnt += arr[j]
+#         if cnt == 0:
+#             return True
+#     return False
+
+# for test_case in range(1,t+1):
+#     arr = list(map(int,input().split()))
+#     print(check(arr))

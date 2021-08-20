@@ -4,7 +4,7 @@ for test_case in range(1,t+1):
     dx = [0,1,0,-1]
     dy = [1,0,-1,0]
     n = int(input())
-    arr = [[] for _ in range(n)]
+    arr = [[0]*n for _ in range(n)]
     x, y, step = 0, 0, 0
     for i in range(1,(n**2)+1):
         arr[x][y] = i
