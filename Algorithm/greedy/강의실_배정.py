@@ -1,15 +1,15 @@
-import sys
 import heapq
-n = int(sys.stdin.readline())
-array = []
-for _ in range(n):
-    array.append(list(map(int,sys.stdin.readline().split())))
-t = sorted(array,key=lambda x:x[0])
 
-q = []
+n = int(input())
+timetable = [list(map(int,input().split())) for _ in range(n)]
+que = []
+heapq.heappush(que, timetable[0][1])
 
-for i in t:
-    if q and q[0] <= i[0]:
-        heapq.heappop(q)
-    heapq.heappush(q,i[1])
-print(len(q))
+for i in range(1,n):
+    if que[0] > timetable[i][1]:
+        heapq.heappush(que, timetable[i][1])
+    else:
+        heapq.heappop(que)
+        heapq.heappush(que, timetable[i][1])
+
+print(len(que))
