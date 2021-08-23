@@ -31,4 +31,6 @@ for _ in range(1):
         adj_arr[road[2*i]][road[2*i+1]] = 1
 
     # 3. 인접리스트 방식
-
+    adj_list = [[] for _ in range(n)]
+    for i in range(n):
+        adj_list[road[2*i]].append(road[2*i+1])

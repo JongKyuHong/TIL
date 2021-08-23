@@ -17,8 +17,3 @@ for test_case in range(1,t+1):
     n, k = map(int,input().split())
     a = list(range(1,13))
     print(f'#{test_case}', check(n,k))
-
-
-
-
-

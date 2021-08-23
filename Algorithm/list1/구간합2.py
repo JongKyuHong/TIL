@@ -11,8 +11,6 @@ for test_case in range(1,t+1):
             cnt += nums[j]
         maxa = max(maxa,cnt)
         mina = min(mina,cnt)
-    print(maxa)
-    print(mina)
     res = maxa - mina
     print(f'#{test_case} {res}')
 

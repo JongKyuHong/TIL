@@ -2,13 +2,9 @@ t = int(input())
 
 for test_case in range(1,t+1):
     n = int(input())
-    bus_route = []
-    for _ in range(n):
-        bus_route.append(list(map(int,input().split())))
+    bus_route = [list(map(int,input().split())) for _ in range(n)]
     p = int(input())
-    bus_stops = []
-    for _ in range(p):
-        bus_stops.append(int(input()))
+    bus_stops = [int(input()) for _ in range(p)]
     res = []
     for bus in bus_stops:
         cnt = 0

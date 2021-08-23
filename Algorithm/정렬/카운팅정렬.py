@@ -16,4 +16,3 @@ a = list(input().split())  # 입력배열
 k = int(input())  # 입력의 최대값
 b = []
 c = [0] * (k+1)  # 카운트배열
-    

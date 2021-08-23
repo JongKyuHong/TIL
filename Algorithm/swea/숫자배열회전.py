@@ -18,7 +18,8 @@ for test_case in range(1,t+1):
     rotate_270 = rotate(rotate_180)
     print(f'#{test_case}')
     for i in range(n):
-        print(*rotate_90[i], *rotate_180[i], *rotate_270[i])
+        print(''.join(map(str,rotate_90[i])), ''.join(map(str,rotate_180[i])), ''.join(map(str,rotate_270[i])))
+
     
     
 

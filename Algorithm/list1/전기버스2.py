@@ -19,11 +19,25 @@ for test_case in range(1,t+1):
             prev = bus_stops[i]
         else:
             cnt = 0
-            print(i, 'hi')
             break
 
     print(f'#{test_case} {cnt}')
 
+
+for i in range(m):
+    if i == m-1:
+        if n-prev > ch:
+            cnt += 1
+    elif bus_stops[i]-prev <= ch:
+        if bus_stops[i+1] - prev > ch:
+            ch = k
+            cnt += 1
+        else:
+            ch -= (bus_stops[i]-prev)
+        prev = bus_stops[i]
+    else:
+        cnt = 0
+        break
 
 
 
