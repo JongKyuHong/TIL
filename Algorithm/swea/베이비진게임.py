@@ -1,11 +1,13 @@
 def check(arr,index):
+    if arr[index] == 3:
+        return True
     if index > 1:
         if arr[index-2] and arr[index-1]:
             return True
-    if index < len(arr)-3:
+    if index < 8:
         if arr[index+2] and arr[index+1]:
             return True
-    if 0 < index < len(arr)-2:
+    if 0 < index < 9:
         if arr[index+1] and arr[index-1]:
             return True
     return False
@@ -22,10 +24,12 @@ for test_case in range(int(input())):
     for i in range(12):
         if i%2:
             a2_cnt[number[i]] += 1
-            if a2_cnt[number[i]] == 3 or check(a2_cnt,number[i]):
+            if check(a2_cnt,number[i]):
                 winner = 2
+                break
         else:
             a1_cnt[number[i]] += 1
-            if a1_cnt[number[i]] == 3 or check(a1_cnt,number[i]):
+            if check(a1_cnt,number[i]):
                 winner = 1
+                break
     print(f'#{test_case+1} {winner}')

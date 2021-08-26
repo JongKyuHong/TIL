@@ -4,12 +4,9 @@ for test_case in range(int(input())):
     capacity = list(map(int,input().split()))  # 트럭의 적재 용량
     weight.sort(reverse=True)
     capacity.sort(reverse=True)
-    print(weight, 'weight')
-    print(capacity,'capa')
     res = 0
     j = 0
     i = 0
-    print(n, m)
     while j < n and i < m:
         if weight[j] <= capacity[i]:
             res += weight[j]

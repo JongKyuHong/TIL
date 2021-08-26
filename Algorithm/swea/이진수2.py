@@ -19,10 +19,3 @@ def change_bin(n):
 for test_case in range(int(input())):
     n = float(input())
     print(f'#{test_case+1} {change_bin(n)}')
-
-
-    
-
-
-
-

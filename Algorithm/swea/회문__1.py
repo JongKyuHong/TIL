@@ -17,5 +17,5 @@ for test_case in range(int(input())):
                 res.append(lst)
                 break
     res = res[-1]
-    print(f'#{test_case} {res}')
+    print(f'#{test_case+1} {res}')
 

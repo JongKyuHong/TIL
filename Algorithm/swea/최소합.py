@@ -1,5 +1,4 @@
 def dfs(y,x,sum_value):
-    print(sum_value)
     global min_value
     if y == n-1 and x == n-1:
         min_value = min(min_value,sum_value)
@@ -30,8 +29,3 @@ for test_case in range(int(input())):
     sum_value = graph[0][0]
     dfs(0,0,sum_value)
     print(f'#{test_case+1} {min_value}')
-
-
-
-
-

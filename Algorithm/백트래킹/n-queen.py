@@ -1,26 +1,23 @@
-def adjacent(x):
-    for i in range(x):
-        if row[x] == row[i] or abs(row[x] - row[i]) == x-i:
-            return False
-    return True
-
-
-
-def dfs(x):
-    global result
-
-    if x == n:
-        result += 1
-    else:
-        for i in range(n):
-            row[x] = i
-            if adjacent(x):
-                dfs(x+1)
-
-
-n = int(input())
-row = [0] * n
-result = 0
-dfs(0)
-print(row)
-print(result)
+import sys
+input = sys.stdin.readline
+ 
+ 
+def DFS(i):
+    global N, col, slash, backSlash, case
+    if i == N:
+        case += 1
+        return
+    for j in range(N):
+        if not (col[j] or slash[i + j] or backSlash[i - j + N - 1]):
+            col[j] = slash[i + j] = backSlash[i - j + N - 1] = True
+            DFS(i + 1)
+            col[j] = slash[i + j] = backSlash[i - j + N - 1] = False
+ 
+ 
+N = int(input())
+col, slash, backSlash = [False] * N, [False] * (2 * N - 1), [False] * (2 * N - 1)
+case = 0
+ 
+DFS(0)
+ 
+print(case)

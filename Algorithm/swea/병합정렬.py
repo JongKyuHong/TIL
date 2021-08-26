@@ -1,11 +1,9 @@
 def divide(arr):
-    
     if len(arr) <= 1:
         return arr
     mid = len(arr)
     left = divide(arr[:mid//2])
     right = divide(arr[mid//2:])
-    print(right)
     return merge(left, right)
 
 def merge(left, right):
@@ -44,5 +42,4 @@ for test_case in range(int(input())):
     cnt = 0
     array = list(map(int,input().split()))
     res = divide(array)
-    print(res)
     print(f'#{test_case+1} {res[n//2]} {cnt}')

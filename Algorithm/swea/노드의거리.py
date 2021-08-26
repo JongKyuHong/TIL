@@ -1,12 +1,16 @@
-def bfs(graph, start, visited):
+from collections import deque
+
+def bfs(start):
     visited[start] = 1
-    que = [start]
+    que = deque([start])
     while que:
-        v = que.pop(0)
+        v = que.popleft()
         for i in graph[v]:
             if not visited[i]:
                 que.append(i)
+                distance[i] = distance[v] + 1
                 visited[i] = 1
+
 
 for test_case in range(int(input())):
     v, e = map(int,input().split())
@@ -14,10 +18,9 @@ for test_case in range(int(input())):
     for i in range(e):
         a, b = map(int,input().split())
         graph[a].append(b)
-    visited = [0] * (v+1)
+        graph[b].append(a)
     s, g = map(int,input().split())
-    bfs(graph,s,visited)
-    print(f'#{test_case+1} {visited[g]}')
-
-
-
+    visited = [0]*(v+1)
+    distance = [0]*(v+1)
+    bfs(s)
+    print(f'#{test_case+1} {distance[g]}')

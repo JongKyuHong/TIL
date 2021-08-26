@@ -15,7 +15,7 @@ def draw_star(n) :
                 Map[a*i+k][a*j:a*(j+1)] = Map[k][:a]
 
 
-N = int(input())      
+N = int(input())
 
 # 메인 데이터 선언
 Map = [[0 for i in range(N)] for i in range(N)]
