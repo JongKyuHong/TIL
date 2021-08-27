@@ -6,7 +6,6 @@ def brute_force(arr, bottom, n):
     result = 0
     maxa = 0
     for i in range(n):
-        print(arr)
         a,b,c,d,e,f = arr.popleft()
         if bottom == a: # A가 밑면에 있는 상황을 말함
             maxa = max(b,c,d,e)
@@ -32,7 +31,6 @@ def brute_force(arr, bottom, n):
             maxa = max(b,c,d,e)
             result += maxa
             bottom = a
-        print(result)
     return result
 
 n = int(input())
