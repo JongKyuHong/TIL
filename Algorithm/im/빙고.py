@@ -66,12 +66,6 @@ for i in range(5):
                 break
         if c:
             break
-        # if cnt >= 15:
-        #    if check(bingo):
-        #        end_flag = 1
-        #        break
-    # if end_flag == 1:
-    #     break
     if c:
         break
 print(cnt)

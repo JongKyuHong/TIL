@@ -15,7 +15,7 @@ for i in girls:
         cnt += 1
     else:
         if i % k == 0:
-            cnt += (i // k)
+            cnt += (i//k)
         else:
             cnt += (i//k) + 1
 for i in boys:
@@ -24,7 +24,10 @@ for i in boys:
     elif i // k < 1:
         cnt += 1
     else:
-        cnt += round(i/k)
+        if i % k == 0:
+            cnt += (i//k)
+        else:
+            cnt += (i//k) + 1
 print(cnt)
 
 
