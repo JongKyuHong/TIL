@@ -11,7 +11,6 @@ for i in range(8):
             break
     if flag == 1:
         break
-print(height)
 height.sort()
 for i in height:
     print(i)

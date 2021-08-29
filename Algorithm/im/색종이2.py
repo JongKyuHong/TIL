@@ -5,7 +5,6 @@ for a,b in paper:
     for i in range(b-10, b):
         for j in range(a, a+10):
             graph[i][j] = 1
-print(graph)
 cnt = 0
 for i in range(100):
     for j in range(100):
