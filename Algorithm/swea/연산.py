@@ -3,7 +3,6 @@ from collections import deque
 
 def calculation(n):
     que = deque([(n, 0)])
-    #que.append()
     while que:
         n, cnt = que.popleft()
         for i in range(4):
