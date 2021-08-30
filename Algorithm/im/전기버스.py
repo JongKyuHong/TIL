@@ -19,7 +19,7 @@ for test_case in range(int(input())):
             start = array[a]
             cnt += 1
         a += 1
-    print(f'#{test_case} {cnt}')
+    print(f'#{test_case+1} {cnt}')
 
 
 
