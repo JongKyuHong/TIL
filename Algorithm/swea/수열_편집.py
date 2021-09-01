@@ -9,7 +9,6 @@ for test_case in range(int(input())):
             numbers.pop(int(array[1]))
         elif array[0] == 'C':
             numbers[int(array[1])] = int(array[2])
-    print(numbers)
     if len(numbers) > l:
         print(f'#{test_case+1} {numbers[l]}')
     else:

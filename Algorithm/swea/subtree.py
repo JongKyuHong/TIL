@@ -1,11 +1,10 @@
 def dfs(index):
     global cnt
-    print(array[index])
     for i in range(len(array[index])):
         if array[index][i] != 0:
             cnt += 1
             dfs(array[index][i])
-    return 
+    return
 
 for test_case in range(int(input())):
     e, n = map(int, input().split())
