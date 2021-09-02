@@ -1,7 +1,7 @@
 n = int(input())
 array = list(map(int, input().split()))
 numbers = list(map(int, input().split()))
-maximum = 1e-9
+maximum = -1e9
 minimum= 1e9
 def dfs(depth, total, plus, minus, multiply, divide):
     global maximum, minimum
