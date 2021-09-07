@@ -1,8 +1,8 @@
+import sys
 from collections import deque
 queue = deque([])
 for _ in range(int(input())):
-    a = list(input().split())
-    print(a[0])
+    a = list(map(str, sys.stdin.readline().split()))
     if a[0] == 'push':
         queue.append(a[-1])
     elif a[0] == 'pop':
