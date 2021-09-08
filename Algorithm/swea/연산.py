@@ -1,33 +1,46 @@
 from collections import deque
 
+def BFS():
+    global start_num, end_num, result, tc
+    while Q:
+        num, cnt = Q.popleft()
+        if num == end_num:
+            result = cnt
+            return
 
-def calculation(n):
-    que = deque([(n, 0)])
-    while que:
-        n, cnt = que.popleft()
         for i in range(4):
+            num2 = 0
             if i == 0:
-                n1 = n + 1
+                num2 = num + 1
+                if 0 < num2 <= 1000000 and num_lst[num2] != tc:
+                    Q.append((num2, cnt+1))
+                    num_lst[num2] = tc
+
             elif i == 1:
-                n1 = n - 1
+                num2 = num - 1
+                if 0 < num2 <= 1000000 and num_lst[num2] != tc:
+                    Q.append((num2, cnt+1))
+                    num_lst[num2] = tc
+
             elif i == 2:
-                n1 = n * 2
-            else:
-                n1 = n - 10
-            if n1 == m:
-                return cnt + 1
-            elif 0 < n1 <= 10**6 and count_list[n1] != 1:
-                que.append((n1, cnt+1))
-                count_list[n1] = 1
+                num2 = num*2
+                if 0 < num2 <= 1000000 and num_lst[num2] != tc:
+                    Q.append((num2, cnt+1))
+                    num_lst[num2] = tc
 
+            elif i == 3:
+                num2 = num - 10
+                if 0 < num2 <= 1000000 and num_lst[num2] != tc:
+                    Q.append((num2, cnt+1))
+                    num_lst[num2] = tc
 
-for test_case in range(int(input())):
-    n, m = map(int, input().split())
-    #cal = [+1,-1,*2,-10]
-    count_list = [0]*((10**6)+1)
-    cnt = calculation(n)
-    print(f'#{test_case+1} {cnt}')
-    
-
-
-
+TC = int(input())
+num_lst = [0] * 1000001
+for tc in range(1, TC+1):
+    start_num, end_num = map(int, input().split())
+    Q = deque()
+    Q.append((start_num, 0))
+    num_lst[start_num] = tc
+    result = 0
+    BFS()
+    print('#%d %d'%(tc, result))
