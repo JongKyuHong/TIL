@@ -17,8 +17,4 @@ for x in value:
         else:
             q.appendleft(q.pop())
             count += 1
-print(count)        
-        
-
-
-
+print(count)
