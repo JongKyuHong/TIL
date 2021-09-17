@@ -30,7 +30,8 @@ def dijkstra(x,y):
                     heapq.heappush(q,(cost,nx,ny))
 
 dijkstra(0,0)
-if maze[n-1][m-1] == '1':
-    print(distance[n-1][m-1]+1)
+if m == 1 and n == 1:
+    print(0)
 else:
     print(distance[n-1][m-1])
+

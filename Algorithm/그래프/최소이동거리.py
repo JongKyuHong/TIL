@@ -10,10 +10,8 @@ for test_case in range(int(input())):
         node[a].append((b, c))
     queue = []
     heapq.heappush(queue, (0, 0))
-    print(a, 'a임')
     while queue:
         d, idx = heapq.heappop(queue)
-        print(a, 'a임')
         if visited[a]:
             continue
         visited[idx] = 1
