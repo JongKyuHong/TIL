@@ -22,4 +22,4 @@ for test_case in range(int(input())):
     for i in array:
         insert_heap(i)
     ans = get_sum(len(heap)-1)
-    print(f'#{test_case} {ans}')
+    print(f'#{test_case+1} {ans}')

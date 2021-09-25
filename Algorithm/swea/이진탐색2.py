@@ -11,5 +11,4 @@ for test_case in range(int(input())):
     cnt = 1
     tree = [0 for i in range(n+1)]
     make_tree(1)
-    print(tree)
     print(f'#{test_case+1} {tree[1]} {tree[n//2]}')
