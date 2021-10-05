@@ -19,6 +19,7 @@ def check_baby(player, index):
         elif 0 < index < 9 and player2_nums[index] and player2_nums[index+1] and player2_nums[index-1]:
             res = 2
 
+
 for test_case in range(int(input())):
     nums = list(map(int, input().split()))
     player1_nums = [0] * 10
