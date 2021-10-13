@@ -1,8 +1,11 @@
-def shoot(n):
-    for index in range(w):
-        explosion(index)
-        gravity()
-        shoot(n-1)
+def shoot(array, n):
+    for i in range(h):
+        for j in range(w):
+            if array[i][j]:
+                temp = [row[:] for row in array]
+                gravity()
+                shoot(temp, n+1)
+                break
 
 def explosion(c):
     for i in range(h):
@@ -52,5 +55,5 @@ def gravity():
 for test_case in range(int(input())):
     n, w, h = map(int, input().split())
     bricks = [list(map(int, input().split())) for _ in range(h)]
-    shoot(n)
+    shoot(bricks, 0)
 
