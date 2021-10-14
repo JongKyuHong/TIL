@@ -1,9 +1,11 @@
+import sys
+sys.stdin = open('input.txt')
 from collections import deque
 
-def BFS():
+def bfs():
     global start_num, end_num, result, tc
-    while Q:
-        num, cnt = Q.popleft()
+    while q:
+        num, cnt = q.popleft()
         if num == end_num:
             result = cnt
             return
@@ -12,35 +14,35 @@ def BFS():
             num2 = 0
             if i == 0:
                 num2 = num + 1
-                if 0 < num2 <= 1000000 and num_lst[num2] != tc:
-                    Q.append((num2, cnt+1))
-                    num_lst[num2] = tc
+                if 0 < num2 <= 1000000 and numbers[num2] != 1:
+                    q.append((num2, cnt+1))
+                    numbers[num2] = 1
 
             elif i == 1:
                 num2 = num - 1
-                if 0 < num2 <= 1000000 and num_lst[num2] != tc:
-                    Q.append((num2, cnt+1))
-                    num_lst[num2] = tc
+                if 0 < num2 <= 1000000 and numbers[num2] != 1:
+                    q.append((num2, cnt+1))
+                    numbers[num2] = 1
 
             elif i == 2:
                 num2 = num*2
-                if 0 < num2 <= 1000000 and num_lst[num2] != tc:
-                    Q.append((num2, cnt+1))
-                    num_lst[num2] = tc
+                if 0 < num2 <= 1000000 and numbers[num2] != 1:
+                    q.append((num2, cnt+1))
+                    numbers[num2] = 1
 
             elif i == 3:
                 num2 = num - 10
-                if 0 < num2 <= 1000000 and num_lst[num2] != tc:
-                    Q.append((num2, cnt+1))
-                    num_lst[num2] = tc
+                if 0 < num2 <= 1000000 and numbers[num2] != 1:
+                    q.append((num2, cnt+1))
+                    numbers[num2] = 1
 
-TC = int(input())
-num_lst = [0] * 1000001
-for tc in range(1, TC+1):
+
+for test_case in range(int(input())):
+    numbers = [0] * 1000001
     start_num, end_num = map(int, input().split())
-    Q = deque()
-    Q.append((start_num, 0))
-    num_lst[start_num] = tc
+    q = deque()
+    q.append((start_num, 0))
+    numbers[start_num] = 1
     result = 0
-    BFS()
-    print('#%d %d'%(tc, result))
+    bfs()
+    print(f'#{test_case+1} {result}')
