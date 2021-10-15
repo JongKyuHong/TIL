@@ -5,9 +5,7 @@ for test_case in range(int(input())):
     start = array[0][0]
     end = array[0][1]
     cnt = 1
-    #print(array)
     for i in range(1, n):
-        #print(start, array[i][1],'start와 array[i][1]값')
         if start >= array[i][1]:
             start = array[i][0]
             end = array[i][1]

@@ -9,7 +9,6 @@ def dfs(index, ans):
             visited[i] = 0
 
 
-
 for test_case in range(int(input())):
     n, b = map(int, input().split())
     s = list(map(int, input().split()))

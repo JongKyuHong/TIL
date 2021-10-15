@@ -1,6 +1,6 @@
 def dfs(x, y):
     global ans
-    if x < 0 or x >= n or y < 0 or y >= n or matrix[x][y] == '0':
+    if x < 0 or x >= n or y < 0 or y >= n:
         return
     if matrix[x][y] == 1:
         ans.append(matrix[x][y])
@@ -15,7 +15,7 @@ def dfs(x, y):
 
 
 n = int(input())
-matrix = [list(input().rstrip()) for _ in range(n)]
+matrix = [list(map(int,input())) for _ in range(n)]
 res = []
 for i in range(n):
     for j in range(n):
@@ -24,5 +24,5 @@ for i in range(n):
         if ans:
             res.append(ans)
 print(len(res))
-for i in res:
+for i in sorted(res):
     print(len(i))

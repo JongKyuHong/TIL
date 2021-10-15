@@ -4,6 +4,7 @@ dr = [-1,1,0,0]
 def dfs(r, c, line):
     if len(line) == 7:
         ans.add(line)
+        return
     for i in range(4):
         nr = r + dr[i]
         nc = c + dc[i]

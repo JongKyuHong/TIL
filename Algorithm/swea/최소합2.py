@@ -4,6 +4,8 @@ def dfs(x, y, val):
         if res > val:
             res = val
         return
+    if val > res:
+        return
     for i in range(2):
         nx = dx[i] + x
         ny = dy[i] + y

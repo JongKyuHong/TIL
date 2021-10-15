@@ -1,5 +1,7 @@
-a = [1,3,5,7]
-a.insert(3,4)
-print(a)
-a.remove(3)
-print(a[0:4])
+a = 100
+i = 0
+result = 0
+for i in range(1, 3):
+    result =  a >> i
+    result += 1
+print(result)

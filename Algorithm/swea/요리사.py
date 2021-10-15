@@ -2,10 +2,7 @@ def dfs(cnt):
     if cnt == n:
         if len(a_list) == n//2:
             global res
-            b_list = []
-            for i in range(n):
-                if i not in a_list:
-                    b_list.append(i)
+            b_list = [i for i in range(n) if i not in a_list]
             a, b = 0, 0
             for i in a_list:
                 for j in a_list:
