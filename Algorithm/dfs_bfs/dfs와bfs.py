@@ -4,7 +4,7 @@ n, m, v = map(int, input().split())
 array = [[0]*(n+1) for _ in range(n+1)]
 for _ in range(m):
     a, b = map(int, input().split())
-    array[a][b] = array[a][b] = 1
+    array[a][b] = array[b][a] = 1
 visit_list = [0]*(n+1)
 
 

@@ -23,5 +23,3 @@ res = 10*6 + 1
 visited[0][0] = 1
 bfs(0,0)
 print(visited[n-1][m-1])
-
-

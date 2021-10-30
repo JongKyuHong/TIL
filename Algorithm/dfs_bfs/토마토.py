@@ -11,12 +11,8 @@ for i in range(m):
 
 while q:
     r, c = q.popleft()
-    print(array)
     for dr, dc in delta:
         nr, nc = dr + r, dc + c
-        # if 0 <= nr < m and 0 <= nc < n and array[nr][nc] == 0:
-        #     q.append((nr,nc))
-        #     array[nr][nc] = array[r][c] + 1
         if nr < 0 or nc < 0 or nr >= m or nc >= n:
             continue
         if array[nr][nc] == 0:
@@ -32,7 +28,3 @@ for i in array:
             exit()
     ans = max(ans,max(i))
 print(ans-1)
-        
-
-
-
