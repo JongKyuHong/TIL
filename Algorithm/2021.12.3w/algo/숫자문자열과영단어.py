@@ -11,5 +11,3 @@ def solution(s):
                 answer += str(keywords[res])
                 res =''
     return int(answer)
-
-print(solution('one4seveneight'))

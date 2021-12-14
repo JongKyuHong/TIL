@@ -10,7 +10,8 @@ def solution(lottos, win_nums):
         answer.append(7-res)
     else:
         answer.append(6)
-        
-    
-    
+    if res2 > 1:
+        answer.append(7-res2)
+    else:
+        answer.append(6)
     return answer

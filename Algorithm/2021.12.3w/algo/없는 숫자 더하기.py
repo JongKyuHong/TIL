@@ -1,3 +1,2 @@
 def solution(numbers):
-    answer = -1
-    return answer
+    return 45 - sum(numbers)
