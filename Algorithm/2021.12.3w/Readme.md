@@ -107,3 +107,62 @@
   ```
 
   역으로 m-1 n-1부터 시작을해서 접근
+
+  이미 접근한곳은 visited값 리턴해서 해결하였다.
+
+2021/12/16
+
+---------------------
+
+오픈채팅방
+
+* https://programmers.co.kr/learn/courses/30/lessons/42888?language=python3
+* 닉네임 변경을 어떻게 고려할지 아이디어를 못떠올렸는데 딕셔너리를 생성해서 아이디별로 닉네임을 미리 갱신해놓고 출력시에 들어왔다 나갔다만 표시하였다.
+
+
+
+124나라의 숫자
+
+* https://programmers.co.kr/learn/courses/30/lessons/12899
+* 숫자가 1,2,4만 사용되는 문제이다.
+* nums리스트를 만들고 [1,2,4] , n이 1일때 1이나와야하므로 인덱스를 -1해줘야 한다까지는 생각함
+* answer에 nums[n%3]한 값을 계속 앞에다가 붙여주면서 계산하는것은 생각하지 못하였다..
+
+
+
+짝지어 제거하기
+
+* https://programmers.co.kr/learn/courses/30/lessons/12973
+
+* 이런류의 문제는 스택으로 풀면 좋다는것을 기억해야할것 같다.
+
+  
+
+메뉴 리뉴얼
+
+* https://programmers.co.kr/learn/courses/30/lessons/72411
+* itertools의 combinations과 collections의 Counter를 사용하였다.
+* combinations을 통하여 course의 값만큼 조합으로 뽑아내었고, Counter를 통하여 딕셔너리 형태로 카운팅을 한다.
+* 딕셔너리 공부할때 좋은 문제이긴하나 import를 너무 많이 써서 import를 할수없는 환경에서는 풀기 어려울것으로 예상된다.
+
+
+
+뉴스클러스터링
+
+* https://programmers.co.kr/learn/courses/30/lessons/17677
+* 바로 전 문제인 메뉴리뉴얼에서 사용했던 Counter를 사용하여 풀었다.
+
+
+
+거리두기 확인하기
+
+* https://programmers.co.kr/learn/courses/30/lessons/81302
+* 일반 bfs문제에 얼마나 걸었는지 정보를 q에포함
+
+
+
+수식 최대화
+
+* https://programmers.co.kr/learn/courses/30/lessons/67257
+* 스택문제
+* 어려웠다 일단 문자열에서 연산자를 어떻게 걸러낼지가 첫번째 난관이였고 (isdigit으로 걸러냄) 어떻게 우리가 정한 순서에 맞게 계산할지도 모르겠었는데 permutations으로 생성한 수열을 리스트로 받아서 하나씩 돌려가며 함수의 인자로 넘겨주었다.
