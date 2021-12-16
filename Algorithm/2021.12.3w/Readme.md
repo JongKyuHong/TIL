@@ -166,3 +166,17 @@
 * https://programmers.co.kr/learn/courses/30/lessons/67257
 * 스택문제
 * 어려웠다 일단 문자열에서 연산자를 어떻게 걸러낼지가 첫번째 난관이였고 (isdigit으로 걸러냄) 어떻게 우리가 정한 순서에 맞게 계산할지도 모르겠었는데 permutations으로 생성한 수열을 리스트로 받아서 하나씩 돌려가며 함수의 인자로 넘겨주었다.
+
+
+
+두수의 합
+
+* https://www.acmicpc.net/problem/3273
+* 투포인터 실전에서 처음써봄
+
+
+
+n번째 큰 수
+
+* https://www.acmicpc.net/problem/2075
+* 이 문제를 풀면서 우선순위큐, heapify에 대해서 공부를 좀더 해야겠다고 생각했다.
