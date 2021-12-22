@@ -4,4 +4,4 @@ b = list(map(int, input().split()))
 
 c = a + b
 c.sort()
-print(c)
+print(*c)

@@ -6,11 +6,10 @@ start,end = 0, n-1
 ans = 0
 while start < end:
     tmp = nums[start] + nums[end]
-    if tmp == x: ans += 1
-    if tmp < x:
+    if tmp == x: 
+        ans += 1
+    elif tmp < x:
         start += 1
         continue
     end -= 1
 print(ans)
-    
-
