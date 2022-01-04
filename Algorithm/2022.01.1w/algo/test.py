@@ -1,7 +1,4 @@
-s=input()
-smile=s.count(":-)")
-sad=s.count(":-(")
-if smile==0 and sad==0: print("none")
-elif smile>sad: print("happy")
-elif smile==sad: print("unsure")
-elif smile<sad: print("sad")
+for _ in range(int(input())):
+    n, string = input().split()
+    n = int(n)
+    print(string[:n-1], string[n:], sep='')
