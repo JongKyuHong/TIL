@@ -1,31 +1,42 @@
-# 데스나이트
-from collections import deque
-delta = ((-2,-1),(-2,1),(0,-2),(0,2),(2,-1),(2,1))
-def bfs(r1,c1):
+# 돌다리   
+from collections import deque         
+def bfs(n, m):
+    global res
     q = deque()
-    maxdist = 0
-    q.append((r1,c1,0))
-    visited[r1][c1] = 1
+    q.append((n,1))
+    visited[n] = 1
     while q:
-        r, c, dist = q.popleft()
-        if r == r2 and c == c2:
-            maxdist = max(dist, maxdist)
-            return maxdist
-        for dr ,dc in delta:
-            nr = dr + r
-            nc = dc + c
-            if 0 <= nr < n and 0 <= nc < n and not visited[nr][nc]:
-                visited[nr][nc] = 1
-                q.append((nr,nc,dist+1))
-              
-n = int(input())
-graph = [[0]*n for _ in range(n)]
-r1,c1,r2,c2 = map(int, input().split())
-visited = [[0]*n for _ in range(n)]
-res = bfs(r1,c1)
-if res:
+        n,cnt = q.popleft()
+        if cnt > res:
+            continue
+        for i in range(6):
+            if i == 0:
+                nr = n + 1
+            elif i == 1:
+                nr = n - 1
+            elif i == 2:
+                nr = n + a
+            elif i == 3:
+                nr = n + b
+            elif i == 4:
+                nr = n * a
+            elif i == 5:
+                nr = n * b
+            elif i == 6:
+                nr = -1*(n*a)
+            else:
+                nr = -1*(n*b)
+            if 0 <= nr <= 100000 and not visited[nr]:
+                visited[nr] = 1
+                if nr == m:
+                    res = min(res, cnt)
+                    break
+                q.append((nr,cnt+1))
+a,b,n,m = map(int, input().split())
+visited = [0]*100001
+res = 100000
+if n != m:
+    bfs(n,m)
     print(res)
 else:
-    print(-1)
-
-
+    print(0)
