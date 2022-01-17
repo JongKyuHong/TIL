@@ -1,26 +1,34 @@
-# 숨바꼭질
-from heapq import heappush, heappop
-import sys
-input = sys.stdin.readline
-n, m = map(int, input().split())
-s = [[] for i in range(n + 1)]
-def dijkstra(start):
-    heap = []
-    heappush(heap, [0, start])
-    dp = [100000000 for i in range(n + 1)]
-    dp[start] = 0
-    while heap:
-        we, nu = heappop(heap)
-        for n_nu, n_we in s[nu]:
-            wei = we + n_we
-            if dp[n_nu] > wei:
-                dp[n_nu] = wei
-                heappush(heap, [wei, n_nu])
-    return dp
-for i in range(m):
-    a, b = map(int, input().split())
-    s[a].append([b, 1])
-    s[b].append([a, 1])
-dp = dijkstra(1)
-max_dp = max(dp[1:])
-print(dp.index(max_dp), max_dp, dp.count(max_dp))
+from collections import deque
+n,m,k = map(int, input().split())
+graph = [[0]*m for _ in range(n)]
+
+for _ in range(k):
+    r,c = map(int, input().split())
+    graph[r-1][c-1] = 1
+
+delta = ((0,1),(0,-1),(1,0),(-1,0))
+visited = [[0]*m for _ in range(n)]
+v = 0
+def bfs(r, c):
+    global v
+    q = deque()
+    q.append((r,c))
+    visited[r][c] = 1
+    v += 1
+    while q:
+        r, c  = q.popleft()
+        for dr, dc in delta:
+            nr = r + dr
+            nc = c + dc
+            if 0 <= nr < n and 0 <= nc < m and not visited[nr][nc] and graph[nr][nc]:
+                visited[nr][nc] = 1
+                q.append((nr,nc))
+                v += 1
+result = 0
+for i in range(n):
+    for j in range(m):
+        if graph[i][j] == 1:
+            bfs(i,j)
+            result = max(result, v)
+            v = 0
+print(result)
