@@ -1,5 +1,11 @@
-n = int(input())
-
-for _ in range(9):
-    n -= int(input())
-print(n)
+res = float('inf')
+res2 = 0
+flag = 0 
+for _ in range(7):
+    n = int(input())
+    if n % 2 != 0:
+        flag = 1
+        res = min(res, n)
+        res2 += n
+print(res2)
+print(res)
