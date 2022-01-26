@@ -7,5 +7,8 @@ for _ in range(7):
         flag = 1
         res = min(res, n)
         res2 += n
-print(res2)
-print(res)
+if flag:
+    print(res2)
+    print(res)
+else:
+    print(-1)
