@@ -1,15 +1,29 @@
-import math
+from collections import deque
 
-n = 1000
-array = [True for i in range(n+1)]
+v, e = map(int, input().split())
+indegree = [0] * (v+1)
 
-for i in range(2, int(math.sqrt(n))+1):
-    if array[i] == True:
-        j = 2
-        while i * j <= n:
-            array[i*j] = False
-            j += 1
+graph = [[] for _ in range(v+1)]
 
-for i in range(2, n+1):
-    if array[i]:
+for _ in range(e):
+    a, b = map(int, input().split())
+    graph[a].append(b)
+    indegree[b] += 1
+
+def topology_sort():
+    result = []
+    q = deque()
+    for i in range(1, v+1):
+        if indegree[i] == 0:
+            q.append(i)
+    while q:
+        now = q.popleft()
+        result.append(now)
+        for i in graph[now]:
+            indegree[i] -= 1
+            if indegree[i] == 0:
+                q.append(i)
+    for i in result:
         print(i, end=' ')
+        
+topology_sort()
