@@ -1,13 +1,7 @@
-import sys
-input = sys.stdin.readline
+K, N, M = map(int, input().split())
+answer = (K*N)-M 
 
-idx = 0
-result = -1
-
-for i in range(5):
-    A = list(map(int, input().split()))
-    
-    if sum(A) > result:
-        result = sum(A)
-        idx = i+1
-print(idx, result)
+if answer > 0:
+    print(answer)
+else:
+    print(0)
