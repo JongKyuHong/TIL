@@ -1,17 +1,13 @@
-import sys
-input = sys.stdin.readline
+H, M = map(int, input().split())
+timer = int(input()) 
 
-a,b,c = map(int, input().split())
+H += timer // 60
+M += timer % 60
 
-if a==b==c:
-    print(10000+1000*a)
-elif a==b:
-    print(1000+100*a)
-elif b==c:
-    print(1000+100*b)
-elif a==c:
-    print(1000+100*a)
-elif a!=b and b!=c and a!=c:
-    m=max(a,b,c)
-    print(m*100)
-    
+if M >= 60:
+    H += 1
+    M -= 60
+if H >= 24:
+    H -= 24
+
+print(H,M)
