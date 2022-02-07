@@ -1,29 +1,34 @@
-from collections import deque
-import sys
+import heapq
+INF = int(1e9)
 
-input = sys.stdin.readline
+n,m = map(int, input().split())
+start = int(input())
 
-def bfs(x, mode):
-    q = deque()
-    q.append(x)
-    c = [-1 for _ in range(n)]
-    c[x] = 0
+graph = [[] for i in range(n+1)]
+
+distance = [INF] * (n+1)
+
+for _ in range(m):
+    a,b,c = map(int, input().split())
+    graph[a].append((b,c))
+    
+def dijkstra(start):
+    q = []
+    heapq.heappush(q,(0,start))
+    distance[start] = 0
     while q:
-        x = q.popleft()
-        for w, nx in a[x]:
-            if c[nx] == -1:
-                c[nx] = c[x] + w
-                q.append(nx)
-    if mode == 1:
-        return c.index(max(c))
+        dist, now = heapq.heappop(q)
+        if distance[now] < dist:
+            continue
+        for c,d in graph[now]:
+            cost = dist + d
+            if cost < distance[c]:
+                distance[c] = cost
+                heapq.heappush(q,(cost, c))
+dijkstra(start)
+
+for i in range(1, n+1):
+    if distance[i] == INF:
+        print('INFINITY')
     else:
-        return max(c)
-
-n = int(input())
-a = [[] for _ in range(n)]
-
-for i in range(n-1):
-    x, y, w = map(int, input().split())
-    a[x-1].append([w, y-1])
-    a[y-1].append([w, x-1])
-print(bfs(bfs(0, 1), 2))
+        print(distance[i])
