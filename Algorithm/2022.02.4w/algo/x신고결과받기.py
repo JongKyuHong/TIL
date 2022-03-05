@@ -10,8 +10,5 @@ def solution(id_list, report, k):
         if len(value) >= k:
             for v in value:
                 answer[id_list.index(v)] += 1
-                
-
-                
     return answer
 print(solution(["muzi", "frodo", "apeach", "neo"],["muzi frodo","apeach frodo","frodo neo","muzi neo","apeach muzi"],2))
