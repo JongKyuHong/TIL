@@ -2,7 +2,6 @@ m = int(input())
 array = []
 for _ in range(m):
     t = list(input().split())
-    print(t)
     if len(t) == 2:
         if t[0] == 'add':
             array.append(t[1])
