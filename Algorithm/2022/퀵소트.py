@@ -1,30 +1,21 @@
-from operator import eq
-
+def quicksort(a, low, high):
+    if low<high:
+        pivot = a[high]
+        i = low-1
+        for j in range(low, high):
+            if a[j] < pivot:
+                i += 1
+                a[i],a[j] = a[j], a[i]
+        i += 1
+        a[i], a[high] = a[high], a[i]
+        for num in a:
+            print(num, end=" ")
+        print()
+        
+        quicksort(a, low, i-1)
+        quicksort(a, i+1, high)
 
 n = int(input())
-a = list(map(int, input().split()))
-
-def quick_sort(arr):
-    def sort(low, high):
-        if high <= low:
-            return
-
-        mid = partition(low, high)
-        sort(low, mid - 1)
-        sort(mid, high)
-
-    def partition(low, high):
-        pivot = arr[(low + high) // 2]
-        while low <= high:
-            while arr[low] < pivot:
-                low += 1
-            while arr[high] > pivot:
-                high -= 1
-            if low <= high:
-                arr[low], arr[high] = arr[high], arr[low]
-                low, high = low + 1, high - 1
-        return low
-
-    return sort(0, len(arr) - 1)
-
-print(quick_sort(a))
+nums = list(map(int, input().split()))
+quicksort(nums, 0, n-1)
+        
