@@ -1,18 +1,6 @@
-for _ in range(int(input())):
-    array = list(input())
-    stack = []
-    for i in array:
-        if i == '(':
-            stack.append(i)
-        else:
-            if stack:
-                if stack[-1] == '(':
-                    stack.pop()
-                else:
-                    stack.append(i)
-            else:
-                stack.append(i)
-    if stack:
-        print('NO')
-    else:
-        print('YES')
+a, b = input().split()
+
+min_value = int(a.replace('6','5')) + int(b.replace('6','5'))
+max_value = int(a.replace('5','6')) + int(b.replace('5','6'))
+
+print(min_value, max_value)
