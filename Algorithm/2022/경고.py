@@ -1,37 +1,27 @@
-data = input()
-data2 = input()
+h1,m1,s1 = map(int, input().split(":"))
+h2,m2,s2 = map(int, input().split(":"))
 
-hh,mm,ss=0,0,0
-if data == data2:
+if h1 == h2 and m1 == m2 and s1 == s2:
     print("24:00:00")
     exit()
-if data[:2] > data2[:2]:
-    hh = 24-int(data[:2])+int(data2[:2])
-elif data[:2] < data2[:2]:
-    hh = int(data2[:2])-int(data[:2])
+h, m = 0, 0
 
-if data[3:5] > data2[3:5]:
-    hh -= 1
-    mm = 60-int(data[3:5])+int(data2[3:5])
-elif data[3:5] < data2[3:5]:
-    mm = int(data2[3:5])-int(data[3:5])
+s = s2 - s1
+if s < 0:
+    m -= 1
+    s += 60
 
-if data[6:8] > data2[6:8]:
-    mm -= 1
-    ss = 60-int(data[6:8])+int(data2[6:8])
-elif data[6:8] < data2[6:8]:
-    ss = int(data2[6:8]) - int(data[6:8])
+m += m2 - m1
+if m < 0:
+    h -= 1
+    m += 60
 
-if hh < 10:
-    hh = str('0') + str(hh)
-else:
-    hh = str(hh)
-if mm < 10:
-    mm = str('0') + str(mm)
-else:
-    mm = str(mm)
-if ss < 10:
-    ss = str('0') + str(ss)
-else:
-    ss = str(ss)
-print(f'{hh}:{mm}:{ss}')
+h += h2 - h1
+if h < 0:
+    h += 24
+
+h = str(h).zfill(2)
+m = str(m).zfill(2)
+s = str(s).zfill(2)
+
+print(f'{h}:{m}:{s}')
