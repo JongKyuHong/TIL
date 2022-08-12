@@ -38,7 +38,7 @@ for i in graph:
 for i in range(n):
     for j in range(n):
         if graph[i][j] == k:
-            print(i, j)
+            print(i+1, j+1)
 
 
 

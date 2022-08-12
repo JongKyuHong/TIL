@@ -1,24 +1,11 @@
-n, m = map(int, input().split())
-nums = list(map(int, input().split()))
-nums.sort()
+INF = float('inf')
+n = int(input())
+a = list(map(int, input().split()))
 
-for _ in range(m):
-    a, b = map(int, input().split())
-    res = 0
-    start, end = 0, n-1
-    while start <= end:
-        mid = (start+end) // 2
-        if a > nums[mid]:
-            start = mid + 1
-        else:
-            end = mid - 1
-    startIdx = start
-    start,end = 0, n-1
-    while start <= end:
-        mid = (start+end) // 2
-        if nums[mid] > b:
-            end = mid - 1
-        else:
-            start = mid + 1
-    endIdx = end+1
-    print(endIdx-startIdx)
+dp = [0] + [INF] * (n-1)
+
+for i in range(1, n):
+    for j in range(0, i):
+        power = max((i-j)*(1+abs(a[i]-a[j])),dp[j])
+        dp[i] = min(dp[i],power)
+print(dp[-1])

@@ -1,5 +1,3 @@
-from collections import deque
-
 n = int(input())
 energy = list(map(int, input().split()))
 energy.sort(reverse=True)

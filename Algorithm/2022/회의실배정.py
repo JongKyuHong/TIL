@@ -12,4 +12,3 @@ for i in range(1,n):
         cnt += 0.5
         recent = string[i]
 print(math.ceil(cnt)+1)
-

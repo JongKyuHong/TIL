@@ -1,7 +1,21 @@
-n = int(input())
-names = [input() for _ in range(n)]
-names2= [input() for _ in range(n-1)]
+import sys
 
-for i in names:
-    if i not in names2:
-        print(i)
+input = sys.stdin.readline
+
+n = int(input())
+part = {}
+for _ in range(n):
+    name = input().rstrip()
+    if name in part:
+        part[name] += 1
+    else:
+        part[name] = 1
+
+for _ in range(n-1):
+    name = input().rstrip()
+    part[name] -= 1
+
+for p in part:
+    if part[p]:
+        print(p)
+        break

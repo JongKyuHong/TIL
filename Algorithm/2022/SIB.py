@@ -1,19 +1,11 @@
-import sys
-
-input = sys.stdin.readline
 n = int(input())
+temp = list(map(int, input().split()))
 num = []
-sums = []
-s = 0
-for n in input().split():
-    n = int(n)
-    s += n
-    sums.append(s)
-    num.append(n)
+num.append(temp[0])
+for i in range(1, n):
+    num.append(num[i-1]+temp[i])
 
-i = 0
-r=  0
-while i < n-1:
-    r += (s-sums[i])*num[i]
-    i += 1
-print(r)
+answer = 0
+for i in range(n):
+    answer += temp[i]*(num[n-1]-num[i])
+print(answer)

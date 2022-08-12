@@ -1,8 +1,11 @@
-from itertools import combinations
+def factorial(n):
+    if n == 1:
+        return 1
+    num = n * factorial(n-1)
+    return num
 
 n, m = map(int, input().split())
-
-listn = list(range(1, n+1))
-
-combi = len(list(combinations(listn,6)))
-print(combi)
+res = 1
+for i in range(m):
+    res *= (n-i)
+print(res//factorial(m))

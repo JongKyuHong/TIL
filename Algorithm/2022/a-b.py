@@ -2,10 +2,14 @@ a,b = map(int, input().split())
 flag = 0
 cnt = 0
 while a != b:
-    if b % 2 and str(b)[-1] == '1':
-        try:
-            b = int(str(b)[:-1])
-        except:
+    if b % 2:
+        if str(b)[-1] == '1':
+            try:
+                b = int(str(b)[:-1])
+            except:
+                flag = 1
+                break
+        else:
             flag = 1
             break
     else:

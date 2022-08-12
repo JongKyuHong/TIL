@@ -17,4 +17,3 @@ else:
         v2 = muscle.pop(-1)
         res = max(res, v1+v2)
     print(res)
-

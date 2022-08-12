@@ -14,9 +14,9 @@ for _ in range(3):
                 ah +=1
                 if ah == 24:
                     ah,am,ase = 0,0,0
-        if ah == bh and am == bm and ase == bse:
-            break
         if int(str(ah)+str(am)+str(ase)) % 3 == 0:
             cnt += 1
+        if ah == bh and am == bm and ase == bse:
+            break
         ase += 1
     print(cnt)

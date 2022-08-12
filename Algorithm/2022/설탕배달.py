@@ -1,6 +1,8 @@
 n = int(input())
 
-if n < 5:
+if n == 3 or n == 5:
+    print(1)
+elif n == 4:
     print(-1)
 else:
     INF = float('inf')

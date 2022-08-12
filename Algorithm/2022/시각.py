@@ -12,6 +12,9 @@ def check(time):
             res += 1
             return True
     else:
+        if k == 0:
+            res += 1
+            return True
         if time == k:
             res += 1
             return True

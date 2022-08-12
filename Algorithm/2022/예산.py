@@ -2,7 +2,7 @@ n = int(input())
 array = list(map(int, input().split()))
 m = int(input())
 
-start = 0
+start = 1
 end = max(array)
 ans = 0
 while start <= end:

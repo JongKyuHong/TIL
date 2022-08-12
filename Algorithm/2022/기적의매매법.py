@@ -29,13 +29,10 @@ def TIMING(money):
         if up >= 3:
             money += stock * days[i]
             stock = 0
-            print(i,stock,money, 'up')
         if down >= 3:
             stock += money // days[i]
             money = money % days[i]
-            print(i,stock,money,'down')
         standard = days[i]
-    print(stock, money,'stock money')
     return [stock, money]
 
 stock2, money2 = TIMING(money)

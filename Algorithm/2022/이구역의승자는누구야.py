@@ -4,15 +4,13 @@ words = {'A':3,'B':2,'C':1,'D':2,'E':3,'F':3,'G':3,'H':3,'I':1,'J':1,'K':3,'L':1
 res = 0
 len_S = len(S)
 
-for i in range(0, len(S)-2,2):
-    res += words[S[i]] + words[S[i+1]]
+for i in S:
+    res += words[i]
 
-if len_S % 2:
-     res += words[S[-1]]
+res = res%10
 
-
-if res % 1:
-    print('I\'m a winner!')
+if res % 2:
+    print("I'm a winner!")
 else:
-    print('You\'re the winner?')
+    print("You\'re the winner?")
 
