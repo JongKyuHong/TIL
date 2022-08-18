@@ -1,29 +1,32 @@
 import sys
-from collections import deque
+import heapq
 input = sys.stdin.readline
 INF = float('inf')
 n = int(input())
 m = int(input())
 
-path = [[] for _ in range(n+1)]
-
+graph = [[] for _ in range(n+1)]
 for _ in range(m):
     start, end, cost = map(int, input().split())
-    path[start].append((end,cost))
-
+    graph[start].append((end, cost))
 
 start, end = map(int, input().split())
-distance = [INF] * (n+1)
-distance[start] = 0
 
-q = deque([(start, 0)])
-while q:
-    now, credit = q.popleft()
-    if distance[now] < credit:
-        continue
-    for destination, cost in path[now]:
-        cost = credit + cost
-        if distance[destination] > cost:
-            distance[destination] = cost
-            q.append((destination,cost))
-print(distance[end])
+def dijkstra(start):
+    q = [[0, start]]
+    dist = [INF] * (n+1)
+    dist[start] = 0
+    while q:
+        cost, now = heapq.heappop(q)
+        if dist[now] < cost:
+            continue
+        for next_node, next_dist in graph[now]:
+            d = cost + next_dist
+            if dist[next_node] > d:
+                dist[next_node] = d
+                heapq.heappush(q, (d, next_node))
+
+    return dist
+
+dist_x = dijkstra(start)
+print(dist_x[end])
