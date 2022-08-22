@@ -1,20 +1,22 @@
 N, X = map(int, input().split())
-blog = list(map(int, input().split()))
+array = list(map(int, input().split()))
 
-if max(blog) == 0:
+if max(array) == 0:
     print('SAD')
     exit()
-value = sum(blog[:X])
-max_value = value
+value = sum(array[:X])
+left, right = 0, N-1
+max_v = value
 max_cnt = 1
-for i in range(X, N):
-    value += blog[i]
-    value -= blog[i-X]
-    if value > max_value:
-        max_value = value
-        max_cnt = 1
-    elif value == max_value:
-        max_cnt += 1
 
-print(max_value)
+for i in range(X,N):
+    value += array[i]
+    value -= array[i-X]
+
+    if value > max_v:
+        max_v = value
+        max_cnt = 1
+    elif value == max_v:
+        max_cnt += 1
+print(max_v)
 print(max_cnt)
