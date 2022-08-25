@@ -1,42 +1,39 @@
 import sys
- 
-sys.setrecursionlimit(10**6)
- 
-input = lambda: sys.stdin.readline().rstrip()
-left = dict()
-right = dict()
- 
+import heapq
+input = sys.stdin.readline
+
 N = int(input())
-parent = [0] * (N+1)
-node_count = 0
+graph = [[] for _ in range(N+1)]
+parent = [[] for _ in range(N+1)]
 for _ in range(N):
-    a, b, c = map(int, input().split())
-    left[a] = b
-    right[a] = c
- 
+    a, b, c = map(int, input().split()) # 현재노드, 왼쪽자식노드, 오른쪽자식노드
+    graph[a].append((b,c))
     if b != -1:
         parent[b] = a
-        node_count += 1
     if c != -1:
         parent[c] = a
-        node_count += 1
- 
-# 마지막 노드 구하는 파트
-last_node = 0
-def traverse(node):
-    global last_node
-    if node == -1:
-        return
-    traverse(left[node])
-    last_node = node
-    traverse(right[node])
- 
-traverse(1)
-edge_count = node_count * 2
-movement = 0
-print(last_node)
-# 마지막 노드까지 이동 경로의 거리 구함
-while last_node != 1:
-    movement += 1
-    last_node = parent[last_node]
-print(edge_count - movement)
+
+def find(node):
+    global dist
+    for left_node, right_node in graph[node]:
+        if left_node != -1 and not visited[left_node]:
+            dist += 1
+            visited[left_node] = 1
+            find(left_node)
+        if right_node != -1 and not visited[right_node]:
+            dist += 1
+            if right_node == N:
+                return
+            visited[right_node] = 1
+            find(right_node)
+        if parent[node] :
+            dist += 1
+
+dist = 0
+visited = [0]*(N+1)
+visited[0] = 1
+find(1)
+
+
+
+print(dist)
