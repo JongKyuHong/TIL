@@ -1,20 +1,26 @@
-n = int(input())
+import sys
+import math
+input = sys.stdin.readline
 
-if n == 2:
-    a, b = map(int, input().split())
-    res = []
-    len_ = a if a < b else b
-    for i in range(1, len_+1):
-        if a % i == 0 and b % i == 0:
-            res.append(i)
-    for i in res:
-        print(i)
-else:
-    a, b, c = map(int, input().split())
-    len_ = min(a,b,c)
-    res = []
-    for i in range(1, len_+1):
-        if a % i == 0 and b % i == 0 and c % i == 0:
-            res.append(i)
-    for i in res:
-        print(i)
+a, b = map(int, input().split())
+
+value = a*b
+target = int(math.sqrt(value)) + 1
+target2 = target
+flag = 0
+res = sys.maxsize
+res1, res2 = 0, 0
+
+while 1:
+    for i in range(target, -1, -1):
+        if i * target2 == value:
+            if i + target2 < res:
+                res = i+target2
+                res1 = i
+                res2 = target2
+                break
+    if i == 0:
+        break
+    target2 += 1
+
+print(res1, res2)
