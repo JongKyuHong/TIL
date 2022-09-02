@@ -15,8 +15,6 @@ for i in range(1, r+1):
 
 for _ in range(q):
     r1,c1,r2,c2 = map(int, input().split()) # 2 2 4 5라고하면
-    1134
     res = sum_arr[r2][c2] - sum_arr[r1-1][c2] - sum_arr[r2][c1-1] + sum_arr[r1-1][c1-1]
     idx = (r2+1-r1) *(c2+1-c1)
-    print(idx, res)
     print(res//idx)

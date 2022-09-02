@@ -16,7 +16,6 @@ for _ in range(m):
     q = [a]
     while q:
         now = heapq.heappop(q)
-        print(now, 'vv')
         for next_node in graph[ord(now)-97]:
             if next_node == c:
                 flag = 1

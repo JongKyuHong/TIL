@@ -26,9 +26,7 @@ res_v = INF
 for i in range(1,n+1):
     s1 = []
     for j in s:
-        print(graph[j][i],graph[i][j])
         s1.append(graph[j][i]+graph[i][j])
-    print(s1)
     if res_v > max(s1):
         res_v = max(s1)
         res = [i]

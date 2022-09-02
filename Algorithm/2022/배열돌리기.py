@@ -30,16 +30,9 @@ for _ in range(int(input())):
         elif d > 0:
             cnt = d // 45
             cnt = cnt % 8
-            print(cnt, 'cnt')
             for i in range(cnt):
                 array = rotate(graph, graph2)
                 graph = array
                 graph2 = copy.deepcopy(graph)
         for i in graph:
             print(*i)
-        
-
-
-
-
-

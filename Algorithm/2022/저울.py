@@ -23,6 +23,5 @@ for i in range(1, n+1):
             continue
         if graph[i][j] == INF:
             if graph[j][i] == INF:
-                print(i, j,'end')
                 cnt += 1
     print(cnt)

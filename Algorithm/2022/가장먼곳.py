@@ -1,7 +1,5 @@
 import sys
 import heapq
-import time
-start = time.time() 
 
 input = lambda : sys.stdin.readline().rstrip()
 
@@ -16,32 +14,33 @@ for _ in range(M):
     graph[d].append([e,l])
     graph[e].append([d,l])
 
-def dijkstra(graph,i):
-    INF = int(10e9)
-    dist = [INF] * len(graph)
-    dist[i] = 0
-    q = [[i, 0]]
-    while q:
-        now, value = heapq.heappop(q)
-        if dist[now] != value:
+def dijkstra(graph,start):
+    INT_MAX = int(10e9)
+    distance = [INT_MAX] * len(graph)
+    distance[start] = 0
+    heap = [[0, start]]
+    while heap:
+        dist, node = heapq.heappop(heap)
+        if distance[node] != dist:
             continue
-        for next_node, next_dist in graph[now]:
-            cost = value + next_dist
-            if dist[next_node] > cost:
-                dist[next_node] = cost
-                heapq.heappush(q,[next_node,cost])
-    return dist
+        for next_node, next_dist in graph[node]:
+            if dist + next_dist < distance[next_node]:
+                distance[next_node] = dist + next_dist
+                heapq.heappush(heap, [distance[next_node], next_node])
+    return distance
 
 
+
+
+max_v = 0
+max_i = 0
 dist_a = dijkstra(graph, a)
 dist_b = dijkstra(graph, b)
 dist_c = dijkstra(graph, c)
 
-max_v = 0
-max_i = 0
+
 for i in range(1,N+1):
     if max_v < min(dist_a[i], dist_b[i], dist_c[i]):
         max_v = min(dist_a[i], dist_b[i], dist_c[i])
         max_i = i
 print(max_i)
-print("time :", time.time() - start)

@@ -27,4 +27,4 @@ while q:
 
 print(dist[end])
 print(len(dist_path[end]))
-print(dist_path[end])
+print(*dist_path[end])

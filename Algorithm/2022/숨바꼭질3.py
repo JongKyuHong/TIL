@@ -2,10 +2,9 @@ import heapq
 import sys
 input = sys.stdin.readline
 
-def dfs(time, v):
-    global res
+def find(time, v):
     q = [(time, v)]
-    dist[v] = 0
+    dist[v] = 0 # 시작지점의 시간을 초기화
     while q:
         time, v = heapq.heappop(q)
         if dist[v] < time:
@@ -29,6 +28,5 @@ def dfs(time, v):
 
 n, k = map(int, input().split()) # 수빈이가 있는 위치, 동생이 있는 위치
 dist = [sys.maxsize] * 100002
-res = float('inf')
-dfs(0, n)
+find(0, n) # 이동시간, 시작지점
 print(dist[k])

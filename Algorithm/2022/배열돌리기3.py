@@ -1,16 +1,21 @@
-import sys
-input = sys.stdin.readline
-
-k = int(input())
-idx = 0
+k=int(input())
+cnt=0
+n=0
+answer=[]
+result=''
 while 1:
-    if 2**idx > k:
-        idx -=1
+    n+=1
+    cnt+=2**n
+    if cnt>=k:
         break
-    idx +=1
-print(idx)
-k -= 2**idx
-print(k)
-nums = '4'*idx
-print(nums)
-    
+idx=k-2**n+1
+for i in range(n):
+    answer.append(idx%2)
+    idx//=2
+answer.reverse()
+for i in range(len(answer)):
+    if answer[i]==1:
+        result+='7'
+    else:
+        result+='4'
+print(int(result))

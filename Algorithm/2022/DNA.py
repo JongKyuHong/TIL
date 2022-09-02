@@ -26,5 +26,5 @@ for i in range(m):
     res += char
     ans += min_v
 
-print(res.rstrip())
+print(res)
 print(ans)

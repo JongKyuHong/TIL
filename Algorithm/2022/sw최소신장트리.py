@@ -25,7 +25,6 @@ for T in range(int(input())):
     edges.sort()
 
     for cost, a, b in edges:
-        print(cost, a, b, 'a')
         if find_parent(parent, a) != find_parent(parent, b):
             union_parent(parent, a, b)
             res += cost

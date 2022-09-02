@@ -4,10 +4,10 @@ input = sys.stdin.readline
 n, m = map(int, input().split())
 trees = list(map(int, input().split()))
 trees.sort()
-left, right = trees[0], trees[-1]
+left, right = 0, trees[-1]
 max_v, target = 0, 0
 
-while left < right:
+while left <= right:
     mid = (left+right)//2
     val = 0
     for tree in trees:

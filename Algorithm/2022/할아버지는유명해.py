@@ -21,6 +21,3 @@ while 1:
             res.append(s[i][0])
     res.sort()
     print(*res)
-
-    
-

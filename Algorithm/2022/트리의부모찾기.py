@@ -10,19 +10,17 @@ for _ in range(n-1):
     graph[a].append(b)
     graph[b].append(a)
 
-q = deque([])
-q.append(1)
-
 visited = [0] * (n+1)
 
 def bfs():
+    q = deque([])
+    q.append(1)
     while q:
         now = q.popleft()
         for next_node in graph[now]:
             if visited[next_node] == 0:
                 visited[next_node] = now
                 q.append(next_node)
-
 
 bfs()
 for i in range(2,n+1):

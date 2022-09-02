@@ -10,4 +10,3 @@ res = set()
 for per in permutations(nums,k):
     res.add(''.join(per))
 print(len(res))
-

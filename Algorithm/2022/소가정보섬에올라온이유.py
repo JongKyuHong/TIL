@@ -18,6 +18,5 @@ for i in joke:
     for j in range(4):
         idx = (i+j-1)%n
         nums[idx] = -nums[idx]
-        print(nums[idx],'num idx')
         ex_sum += 2*nums[idx]
     print(ex_sum)

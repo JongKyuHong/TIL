@@ -32,5 +32,4 @@ def bfs(r, c, k):
                     q.append((nr,nc,k-1))
     return -1
 
-
 print(bfs(0, 0, k))

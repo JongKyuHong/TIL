@@ -26,7 +26,7 @@ def dijkstra(v):
             cost = dist + value
             if cost < distance[end]:
                 distance[end] = cost
-                heapq.heappush(q, (cost, end))                
+                heapq.heappush(q, (cost, end))
 
 dijkstra(k)
 

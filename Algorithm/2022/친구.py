@@ -30,4 +30,3 @@ for i in range(n):
                     break
     res = max(res, cnt)
 print(res)
-

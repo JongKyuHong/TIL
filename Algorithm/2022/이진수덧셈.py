@@ -3,6 +3,3 @@ for _ in range(int(input())):
     a = int(a, 2)
     b = int(b, 2)
     print(bin(a+b).replace('0b',''))
-
-
-

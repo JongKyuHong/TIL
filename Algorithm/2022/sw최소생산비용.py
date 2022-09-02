@@ -3,6 +3,8 @@ def dfs(r, value):
     if r == n-1:
         res = min(res, value)
         return
+    if value > res:
+        return
     for i in range(n):
         if not visited[i]:
             visited[i] = 1

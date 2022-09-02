@@ -8,7 +8,7 @@ while 1:
     # 가장 돈을 많이 번 구간
     cost = [int(input()) for _ in range(n)]
     max_v = -10001
-    dp[0] = max(max_v,cost[0])
+    cost[0] = max(max_v,cost[0])
     for i in range(1,n):
         if cost[i] + cost[i-1] > cost[i]:
             cost[i] = cost[i]+cost[i-1]

@@ -15,7 +15,7 @@ def bfs(r, c):
         for dr, dc in delta:
             nr, nc = dr+r, dc+c
             if 0 <= nr and nr+h-1 < n and 0 <= nc and nc+w-1 < m and not visited[nr][nc] and check(nr,nc):
-                visited[r][c] = 1
+                visited[nr][nc] = 1
                 q.append((nr, nc, dist+1))
     return -1
 def check(r, c):

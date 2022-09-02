@@ -25,7 +25,6 @@ for _ in range(int(input())):
     
     cnt = n
     max_v = 0
-    print(dist,'dd')
     for i in dist[1:]:
         if i == INF:
             cnt -= 1

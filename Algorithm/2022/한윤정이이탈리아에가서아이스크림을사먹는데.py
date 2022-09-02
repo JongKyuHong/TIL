@@ -1,20 +1,20 @@
 import sys
+
 input = sys.stdin.readline
 
-n, m = map(int, input().split()) # n은 아이스크림 종류의 수, m은 섞어먹으면 안되는 조합의 갯수
-ice = [[] for _ in range(n+1)]
-for _ in range(m):
-    a, b = map(int, input().split())
-    ice[a].append(b)
-    ice[b].append(a)
+n, m = map(int, input().split())
+ice = [[False for _ in range(n)] for _ in range(n)]
+for i in range(m):
+    i1, i2 = map(int, input().split())
+    ice[i1 - 1][i2 - 1] = True
+    ice[i2 - 1][i1 - 1] = True
 
-s1 = set()
-for i in range(1,n+1):
-    for j in range(1,n+1):
-        if i == j or j in ice[i]:
-            continue
-        for k in range(1,n+1):
-            if i == k or j == k or k in ice[i] or k in ice[j]:
-                continue
-            s1.add((i,j,k))
-print(s1)
+result = 0
+
+for i in range(n):
+    for j in range(i + 1, n):
+        for k in range(j + 1, n):
+            if not ice[i][j] and not ice[i][k] and not ice[j][k]:
+                result += 1
+
+print(result)

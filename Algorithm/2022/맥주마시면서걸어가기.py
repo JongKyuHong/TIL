@@ -28,4 +28,3 @@ for _ in range(int(input())):
         print('happy')
     else:
         print('sad')
-

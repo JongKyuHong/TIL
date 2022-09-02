@@ -4,7 +4,6 @@ nums = list(range(1,n+1))
 idx = 0
 new_nums = []
 while 1:
-    print(nums)
     if len(nums) == 1:
         print(nums[0])
         exit()

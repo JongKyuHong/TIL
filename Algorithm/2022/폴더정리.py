@@ -1,6 +1,3 @@
-from tkinter.filedialog import FileDialog
-
-
 n, m = map(int, input().split()) # main 폴더 하위에 있는 폴더의 총 개수, 파일의 총개수
 
 Folder_dict = {}
@@ -28,7 +25,7 @@ path = []
 for _ in range(Q):
     data = input().split('/')
     path.append(data[-1])
-    
+
 def find(v):
     global cnt, cnt2
     if v in Folder_dict:

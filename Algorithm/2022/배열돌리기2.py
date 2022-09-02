@@ -1,62 +1,38 @@
+from collections import deque
 import sys
 input = sys.stdin.readline
- 
-n, m, r = map(int, input().split()) # 수행해야 하는 회전의 수 r
-A = [list(map(int, input().split())) for _ in range(n)]
 
+n,m,r = map(int, input().split())
+arr = [list(map(int, input().split())) for _ in range(n)]
+delta = ((1,0),(0,1),(-1,0),(0,-1))
 
+def rotate(start):
+    top = arr[start][start]
+    left = arr[n-start-1][start]
+    bottom = arr[n-start-1][m-start-1]
+    right = arr[start][m-start-1]
 
-for _ in range(r):
-    start_r, start_c, end_r, end_c = 0, 0, n-1, m-1
-    while  start_r < end_r and start_c < end_c:
-        prev = 0
-        for i in range(end_c, start_c, -1): # 열
-            if i == end_c:
-                prev = A[start_r][i-1]
-                A[start_r][i-1] = A[start_r][i]
-            else:
-                prev2 = A[start_r][i-1]
-                A[start_r][i-1] = prev
-                prev = prev2
+    for i in range(start+1, m-start):
+        arr[start][i-1] = arr[start][i]
+    
+    for i in range(n-start-1, start, -1):
+        arr[i][start] = arr[i-1][start]
+    
+    for i in range(m-start-1, start+1, -1):
+        arr[n-start-1][i] = arr[n-start-1][i-1]
+    
+    for i in range(start+1, n-start):
+        arr[i-1][m-start-1] = arr[i][m-start-1]
+    
+    arr[start+1][start] = top
+    arr[n-start-1][start+1] = left
+    arr[n-start-2][m-start-1] = bottom
+    arr[start][m-start-2] = right
 
-        prev2 = 0
-        for i in range(start_r+1, end_r):
-            if i == start_r+1:
-                prev2 = A[i+1][start_c]
-                A[i+1][start_c] = A[i][start_c]
-                A[i][start_c] = prev
-            else:
-                prev = A[i+1][start_c]
-                A[i+1][start_c] = prev2
-                prev2 = prev
+size = 2*n+2*m-4
 
-        for i in range(start_c+1, end_c):
-            if i == start_c+1:
-                prev2 = A[end_r][i+1]
-                A[end_r][i+1] = A[end_r][i]
-                A[end_r][i] = prev
-            else:
-                prev = A[end_r][i+1]
-                A[end_r][i+1] = prev2
-                prev2 = prev
+short = n if n <= m else m
 
-        for i in range(end_r-1,start_r,-1):
-            if i == end_r-1:
-                prev2 = A[i-1][end_c]
-                A[i-1][end_c] = A[i][end_c]
-                A[i][end_c] = prev
-            else:
-                prev = A[i-1][end_c]
-                A[i-1][end_c] = prev2
-                prev2 = prev
-
-        start_r += 1
-        start_c += 1
-        end_r -= 1
-        end_c -= 1
-
-for i in A:
-    print(i)
-
-
-
+for i in range(short//2):
+    for _ in range(r%(size-8*i)):
+        rotate(i)

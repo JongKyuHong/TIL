@@ -12,21 +12,17 @@ for _ in range(m):
 
 start, end = map(int, input().split())
 
-def dijkstra(start):
-    q = [[0, start]]
-    dist = [INF] * (n+1)
-    dist[start] = 0
-    while q:
-        cost, now = heapq.heappop(q)
-        if dist[now] < cost:
-            continue
-        for next_node, next_dist in graph[now]:
-            d = cost + next_dist
-            if dist[next_node] > d:
-                dist[next_node] = d
-                heapq.heappush(q, (d, next_node))
+q = [[0, start]]
+dist = [INF] * (n+1)
+dist[start] = 0
+while q:
+    cost, now = heapq.heappop(q)
+    if dist[now] < cost:
+        continue
+    for next_node, next_dist in graph[now]:
+        d = cost + next_dist
+        if dist[next_node] > d:
+            dist[next_node] = d
+            heapq.heappush(q, (d, next_node))
 
-    return dist
-
-dist_x = dijkstra(start)
-print(dist_x[end])
+print(dist[end])

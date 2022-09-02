@@ -13,6 +13,6 @@ for _ in range(int(input())):
         else:
             bdict[i] = 1
     if adict == bdict:
-        print(a,'%',b,'are anagrams.')
+        print(a,'&',b,'are anagrams.')
     else:
-        print(a,'%',b,'are NOT anagrams.')
+        print(a,'&',b,'are NOT anagrams.')

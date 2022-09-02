@@ -14,5 +14,5 @@ for T in range(int(input())):
                 visited[j] = 1
                 res += w[j]
                 break
-    print(f'#{T+1} {res}')     
+    print(f'#{T+1} {res}')
 

@@ -21,7 +21,4 @@ for T in range(int(input())):
     visited = [0] * n
     sum_value = 0
     find(0, sum_value)
-    
-    
-
     print(f'#{T+1} {min_value}')

@@ -4,7 +4,6 @@ input = sys.stdin.readline
 delta = ((0,1), (0,-1),(1,0),(-1,0))
 
 def bfs(r, c):
-    global res
     q = deque()
     q.append((r,c))
     visited[r][c] = 0
