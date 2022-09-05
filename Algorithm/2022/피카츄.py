@@ -2,11 +2,9 @@ import sys
 input = sys.stdin.readline
 
 S = input().rstrip()
-word = ['pi','ka','chu']
 idx = 0
 flag = 0
 while idx < len(S):
-    print(idx)
     try:
         if S[idx] == 'p':
             if S[idx] + S[idx+1] != 'pi':

@@ -23,7 +23,6 @@ def find(v):
             continue
         if now == b:
             if now_dist <= c:
-                print(dist[b], 'hi')
                 ans = min(ans, dist[b])
         for next_node, next_dist in graph[now]:
             if dist[next_node] < next_dist:
