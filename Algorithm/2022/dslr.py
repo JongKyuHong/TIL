@@ -35,6 +35,3 @@ for T in range(int(input())):
         if not visited[num2]:
             q.append((num2,path+"R"))
             visited[num2] = True   
-    
-
-
