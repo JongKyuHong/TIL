@@ -33,7 +33,7 @@ def traverse(node):
 traverse(1)
 edge_count = node_count * 2
 movement = 0
-while last_node != -1:
+while last_node != 1:
     movement += 1
     last_node = parent[last_node]
 print(edge_count - movement)
