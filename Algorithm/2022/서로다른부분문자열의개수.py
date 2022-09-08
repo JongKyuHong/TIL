@@ -11,4 +11,4 @@ while gap < len(S):
         idx += 1
     gap += 1
     idx = 0
-print(res)
+print(len(res)+1)

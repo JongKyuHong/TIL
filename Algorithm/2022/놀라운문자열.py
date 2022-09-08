@@ -20,7 +20,6 @@ while 1:
         gap += 1
         if flag == 0:
             break
-    print(a_dict)
     if flag:
         print(f'{S} is surprising.')
     else:

@@ -15,7 +15,6 @@ for start in range(N):
         else:
             res.append(S[end])
         end += 1
-        print(res, odd, end,'a')
     if max_v < len(res):
         max_v = len(res)
     

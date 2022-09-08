@@ -7,7 +7,7 @@ if ' ' in data:
     exit()
 
 if '_' in data: # C++ 일때, _를 삭제 그리고 _ 다음문자 대문자로 변경
-    if data[-1] == '_':
+    if data[-1] == '_' or data[0] == '_':
         print('Error!')
         exit()
     new_data = ''

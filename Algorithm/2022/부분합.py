@@ -12,13 +12,9 @@ for start in range(N):
         summary += array[end] 
         len_ += 1
         end += 1
-    print(summary, min_v, len_)
-    # if summary < S:
-    #     print(0)
-    #     exit()
     if summary >= S:
         min_v = min(min_v, len_)
     summary -= array[start]
     len_ -= 1
-print(min_v)
+print(min_v if min_v != sys.maxsize else 0)
     

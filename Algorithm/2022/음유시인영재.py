@@ -15,6 +15,7 @@ for i in S:
         if space < 0:
             print(-1)
             exit()
+        prev = ' '
     else:
         target = ord(i.lower())-97
         print(i, target,'tt')
