@@ -25,37 +25,3 @@ for start in range(N-3):
                 print(0)
                 sys.exit(0)
 print(min_v)
-    
-
-
-
-# for start in range(N-1):
-#     #end = start + 1
-#     while start < end:
-#         summary = S[start] + S[end]
-#         for end in range(start+1, N):
-#             start2 = 0
-#             end2 = N-1
-#             summary = S[start] + S[end]
-#             while start2 < end2:
-#                 if start2 == end or start2 == start:
-#                     start2 += 1
-#                     continue
-#                 elif end2 == end or end2 == start:
-#                     end2 -= 1
-#                     continue
-#                 summary2 = S[start2] + S[end2]
-#                 #print(summary, summary2, start, end, start2, end2)
-#                 if min_v > abs(summary-summary2):
-#                     min_v = abs(summary-summary2)
-#                     if summary - abs(S[start2+1] + S[end2]) > summary - abs(S[start2] + S[end2-1]):
-#                         end2 -= 1
-#                     else:
-#                         start2 += 1
-#                 else:
-#                     if summary - abs(S[start2+1] + S[end2]) > summary - abs(S[start2] + S[end2-1]):
-#                         end2 -= 1
-#                     else:
-#                         start2 += 1
-
-#print(min_v)

@@ -3,26 +3,21 @@ input = sys.stdin.readline
 
 N, M = map(int, input().split())
 S = list(map(int, input().split()))
-visited = [0] * (N+1)
+S.sort()
 res = []
-def find(v, k, idx):
-    if k == M:
-        ans = []
-        for i in v:
-            ans.append(i)
-        res.append(ans)
+def find(depth, idx):
+    if depth == M:
+        print(' '.join(map(str, res)))
         return
-    for i in range(idx, N):
-        if not visited[i]:
-            visited[i] = 1
-            ans = [S[i]]
-            find(v+ans, k+1, i)
-            visited[i] = 0
 
+    for i in range(N):
+        if depth == 0:
+            res.append(S[i])
+            find(depth+1, i)
+            res.pop()
+        elif i >= idx:
+            res.append(S[i])
+            find(depth+1, i)
+            res.pop()
 
-for i in range(N):
-    find([S[i]], 1, i)
-
-res.sort()
-for i in res:
-    print(*i)
+find(0, 0)

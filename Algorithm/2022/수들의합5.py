@@ -16,5 +16,3 @@ for start in range(N):
     summary -= S[start]
 
 print(cnt)
-
-
