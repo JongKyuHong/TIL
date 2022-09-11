@@ -1,19 +1,21 @@
 import sys
 input = sys.stdin.readline
 
-n, s = map(int, input().split())
-nums = list(map(int, input().split()))
+N, S = map(int, input().split())
+array = list(map(int, input().split()))
 
-def dd(idx, v):
-    global cnt
-    if idx >= n:
+ans = 0
+
+def find(idx, sum_v):
+    global ans
+    if idx >= N:
         return
-    v += nums[idx]
-    if v == s:
-        cnt += 1
-    dd(idx+1, v)
-    dd(idx+1, v-nums[idx])
+    sum_v += array[idx]
+    if sum_v == S:
+        ans += 1
+        
+    find(idx+1, sum_v)
+    find(idx+1, sum_v-array[idx])
 
-cnt = 0
-dd(0, 0)
-print(cnt)
+find(0, 0)
+print(ans)

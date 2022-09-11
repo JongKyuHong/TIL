@@ -4,7 +4,6 @@ input = sys.stdin.readline
 N, M = map(int, input().split())
 S = list(map(int, input().split()))
 S.sort()
-visited = [0] * N
 res = []
 def find(depth):
     if depth == M:
@@ -17,8 +16,7 @@ def find(depth):
             tmp = S[i]
             find(depth+1)
             res.pop()
-        elif tmp != S[i]:# and not visited[i]:
-            #visited[i] = 1
+        elif tmp != S[i]:
             res.append(S[i])
             tmp = S[i]
             find(depth+1)
