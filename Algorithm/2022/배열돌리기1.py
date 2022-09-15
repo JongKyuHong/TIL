@@ -1,33 +1,40 @@
-N, M, R = map(int, input().split())
-arr = [list(map(int, input().split())) for _ in range(N)]
-move = [[1, 0], [0, 1], [-1, 0], [0, -1]]  # 하우상좌
+import sys
+input = sys.stdin.readline
 
 
-def rotate():
-    carr = [[] for _ in range(N)]
+n, m, r = map(int, input().split())
+arr = []
+for i in range(n):
+    arr.append(list(map(int, input().split())))
 
-    for i in range(N):#배열 복사
-        carr[i]=arr[i][:]
+for _ in range(r):
+    for i in range(min(n, m) // 2):
+        x, y = i, i
+        value = arr[x][y]
 
-    sr = 0; sc = 0; er = N - 1; ec = M - 1
-    for depth in range(min(M, N)//2):
-        r = sr
-        c = sc
-        for d in move:
-            while True:
-                nr = r + d[0]
-                nc = c + d[1]
-                if sr <= nr <= er and sc <= nc <= ec:
-                    arr[nr][nc] = carr[r][c]
-                    r = nr
-                    c = nc
-                else:
-                    break
-        sr+=1; sc+=1; er-=1; ec-=1
- 
+        for j in range(i + 1, n - i):  # 좌
+            x = j
+            prev_value = arr[x][y]
+            arr[x][y] = value
+            value = prev_value
 
-for r in range(R):  # 전체 회전 횟수
-    rotate()
+        for j in range(i + 1, m - i):  # 하
+            y = j
+            prev_value = arr[x][y]
+            arr[x][y] = value
+            value = prev_value
 
-for i in range(N):
-    print(*arr[i])
+        for j in range(i + 1, n - i):  # 우
+            x = n - j - 1
+            prev_value = arr[x][y]
+            arr[x][y] = value
+            value = prev_value
+
+        for j in range(i + 1, m - i):  # 상
+            y = m - j - 1
+            prev_value = arr[x][y]
+            arr[x][y] = value
+            value = prev_value
+
+for i in arr:
+    print(*i)
