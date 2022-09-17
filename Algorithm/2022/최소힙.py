@@ -1,17 +1,15 @@
 import heapq
-import sys
-
-input = sys.stdin.readline
 
 n = int(input())
-heap = []
-for _ in range(n):
-    a = int(input())
-    if a != 0:
-        heapq.heappush(heap,(abs(a),a))
-    else:
-        if heap:
-            print(heapq.heappop(heap)[1])
+Xlist = [int(input()) for _ in range(n)]
+
+array = []
+
+for X in Xlist:
+    if X:
+        heapq.heappush(array,X)
+    elif X == 0:
+        if array:
+            print(heapq.heappop(array))
         else:
             print(0)
-        

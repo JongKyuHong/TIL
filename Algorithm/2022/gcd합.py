@@ -1,10 +1,18 @@
-import sys 
-import math 
-n=int(input()) 
-for i in range(n): 
-    arr=list(map(int, sys.stdin.readline().split())) 
-    total=0 
-    for j in range(1,len(arr)): 
-        for k in range(j+1,len(arr)): 
-            total+=math.gcd(arr[j],arr[k]) 
-    print(total)
+def gcd(a, b):
+    while b > 0:
+        a, b = b, a%b
+    return a
+
+for _ in range(int(input())):
+    nums = list(map(int, input().split()))
+    num = nums[0]
+    nums = nums[1:]
+    res = 0
+    for i in range(num):
+        for j in range(i+1, num):
+            if nums[i] < nums[j]:
+                res += gcd(nums[i], nums[j])
+            else:
+                res += gcd(nums[j], nums[i])
+    print(res)
+
