@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import sys
 input = sys.stdin.readline
 
@@ -27,7 +26,7 @@ for _ in range(M):
             s.discard(target)
         else:
             s.add(target)
-=======
+
 m = int(input())
 array = []
 for _ in range(m):
@@ -53,4 +52,3 @@ for _ in range(m):
             array = [i for i in range(20)]
         else:
             array = []
->>>>>>> 6f6784b1e7f5e08d85fdb3f1fc44bf9704170fd0
