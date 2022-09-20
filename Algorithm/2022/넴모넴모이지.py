@@ -25,5 +25,3 @@ def dfs(r, c):
 
 dfs(1, 1)
 print(cnt)
-    
-        

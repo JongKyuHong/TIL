@@ -16,8 +16,5 @@ def solution(s):
     while s != '1':
         change_cnt += 1
         [s,zero_cnt] = zero(s)
-        print(s,zero_cnt,'zero')
         zero_ans += zero_cnt    
     return [change_cnt, zero_ans]
-
-print(solution("110010101001"))

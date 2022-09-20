@@ -25,8 +25,3 @@ for _ in range(m):
         print('T')
     else:
         print('F')
-
-    
-
-
-

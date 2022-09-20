@@ -16,7 +16,6 @@ for _ in range(L):
     time, dir = input().split()
     delta.append([time, dir])
 
-
 q = deque()
 body = deque()
 body.append((0, 0))
@@ -39,6 +38,7 @@ while q:
             body.append((nr, nc))
             q.append((time, nr, nc))
         elif graph[nr][nc] == 2:
+            graph[nr][nc] = 0
             body.append((nr, nc))
             q.append((time, nr, nc))
     if delta_idx < L:

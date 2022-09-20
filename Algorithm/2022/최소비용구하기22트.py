@@ -19,7 +19,7 @@ def dijkstra(v):
     dist[v] = 0
     while q:
         now_dist, now = heapq.heappop(q)
-        if dist[now] > now_dist:
+        if dist[now] < now_dist:
             continue
         for next_node, next_dist in graph[now]:
             d = next_dist + now_dist
@@ -32,12 +32,11 @@ def dijkstra(v):
         
 dijkstra(start)
 tmp = end
-while end != -1:
+while tmp != -1:
     res.append(tmp)
     tmp = parent[tmp]
 
 print(dist[end])
 print(len(res))
-
-for i in range(len(res)-1,-1,-1):
-    print(res[i], end=' ')
+res.reverse()
+print(*res)
