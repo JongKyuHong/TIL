@@ -18,14 +18,14 @@ def solution(operations):
                 while q_max and not visited[q_max[0][1]]:
                     heapq.heappop(q_max)
                 if q_max:
-                    heapq.heappop(q_max)
                     visited[q_max[0][1]] = 0
+                    heapq.heappop(q_max)
             else:
                 while q_min and not visited[q_min[0][1]]:
                     heapq.heappop(q_min)
                 if q_min:
-                    heapq.heappop(q_min)
                     visited[q_min[0][1]] = 0
+                    heapq.heappop(q_min)
     while q_max and not visited[q_max[0][1]]:
         heapq.heappop(q_max)
     while q_min and not visited[q_min[0][1]]:
