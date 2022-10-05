@@ -2,19 +2,18 @@ import sys
 import heapq
 input = sys.stdin.readline
 
-
-for T in range(int(input())):
+for _ in range(int(input())):
     k = int(input())
     visited = [0] * 1000001
+    graph = [list(input().rstrip().split()) for _ in range(k)]
     Q_min = []
     Q_max = []
     idx = 0
-    for i in range(k):
-        st, n = input().split()
+    for s, n in graph:
         n = int(n)
-        if st == 'I':
-            heapq.heappush(Q_min, (n, idx))
-            heapq.heappush(Q_max, (-n, idx))
+        if s == 'I':
+            heapq.heappush(Q_min, (n,idx))
+            heapq.heappush(Q_max, (-n,idx))
             visited[idx] = 1
             idx += 1
         else:
@@ -34,8 +33,11 @@ for T in range(int(input())):
         heapq.heappop(Q_max)
     while Q_min and not visited[Q_min[0][1]]:
         heapq.heappop(Q_min)
-    
+
     if Q_max and Q_min:
         print(-Q_max[0][0], Q_min[0][0])
     else:
         print('EMPTY')
+                
+                
+            
