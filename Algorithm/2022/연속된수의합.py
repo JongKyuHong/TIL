@@ -8,7 +8,6 @@ def solution(num, total):
     left = center - 1
     right = center + 1
     while 1:
-        print(left, right)
         if num == cnt:
             if sum_v == total:
                 break

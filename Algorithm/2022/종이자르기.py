@@ -4,7 +4,6 @@ def solution(M, N):
         return 0
     answer = M-1
     cnt = M*(N-1)
-    print(answer, cnt)
     return answer+cnt
 
 print(solution(2,2))

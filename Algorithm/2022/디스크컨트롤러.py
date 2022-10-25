@@ -1,7 +1,7 @@
 import heapq
 
 def solution(jobs):
-    answer = 0
+    # answer = 0
     jobs.sort(key = lambda x: (x[0],x[1]))
     q = []
     for job in jobs:
@@ -17,9 +17,6 @@ def solution(jobs):
         else:
             sum_v += end
             res.append(sum_v-start)
-        print(end, start, sum_v, res)
-        
-
     return int(sum(res)/len(res))
 
 #print(solution([[0,3],[1,9],[4,6]]))

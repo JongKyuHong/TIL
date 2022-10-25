@@ -10,3 +10,4 @@ while 1:
         res.append(ans)
     else:
         print(len(res)-res.index(ans))
+        break

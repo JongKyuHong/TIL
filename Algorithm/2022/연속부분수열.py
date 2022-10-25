@@ -7,7 +7,6 @@ def solution(elements):
             ans = 0
             if w < c:
                 for i in range(w, c):
-                    print(i,w,c,'asdf')
                     ans += elements[i]
             elif w > c:
                 for i in range(c):

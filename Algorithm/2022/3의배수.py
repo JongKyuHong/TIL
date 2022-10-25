@@ -9,6 +9,7 @@ if len(X) == 1:
         print('YES')
     else:
         print('NO')
+    exit()
 while 1:
     sum_v = 0
     for i in X:

@@ -24,6 +24,3 @@ def solution(files):
     return answer
 
 print(solution(["O00321", "O49qcGPHuRLR5FEfoO00321"]))
-
-
-#print(solution(["foo9.txt","foo010bar020.zip","F-15"]))

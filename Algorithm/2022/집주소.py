@@ -14,5 +14,4 @@ while 1:
             answer += 2
         else:
             answer += 3
-
     print(answer)

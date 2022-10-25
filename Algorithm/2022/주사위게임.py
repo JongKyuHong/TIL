@@ -9,4 +9,5 @@ for _ in range(n):
         b -= x
     elif x < y:
         a -= y
-print(a, b)
+print(a)
+print(b)
