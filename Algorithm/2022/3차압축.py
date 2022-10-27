@@ -3,22 +3,19 @@ def solution(msg):
     dic = {}
     for i in range(26):
         dic[chr(65+i)] = i+1
-    rear = 27
-    idx = 0
-    while msg:
-        print(msg[idx], msg)
-        for i in range(1, len(msg)):
-            if msg[idx:idx+i] in dic:
-                continue
-            else:
-                tt = msg[idx:idx+i-1]
-                answer.append(tt)
-                tt = msg[idx:idx+i]
-                dic[tt] = rear
-                rear += 1
-                msg = msg[idx+i:]
-                break
-
+    
+    w, c = 0, 0
+    while 1:
+        c += 1
+        if c == len(msg):
+            answer.append(dic[msg[w:c]])
+            break
+            
+        if msg[w:c+1] not in dic:
+            dic[msg[w:c+1]] = len(dic) + 1
+            answer.append(dic[msg[w:c]])
+            w = c
+            print(answer)
     return answer
 
 print(solution('KAKAO'))

@@ -20,7 +20,7 @@ def solution(topping):
             lst2[topping[i]] += 1
 
     while idx < len(topping):
-        print(lst, lst2)
+        #print(lst, lst2)
         lst_answer = 0
         lst2_answer = 0
         for k, v in lst.items():
