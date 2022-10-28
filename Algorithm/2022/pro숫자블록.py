@@ -64,7 +64,6 @@ def solution(begin, end):
                 graph[i-begin] = 1
             else:
                 graph[i-begin] = k
-    
     return graph[:end-begin+1]
 
 #print(solution(1, 10))
