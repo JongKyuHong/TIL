@@ -1,29 +1,21 @@
-from collections import deque
 import sys
 input = sys.stdin.readline
 
-n, m = map(int, input().split())
-graph = [[] for _ in range(n+1)]
-indegree = [0] * (n+1)
-for _ in range(m):
-    a, b = map(int, input().split())
-    graph[a].append(b)
-    indegree[b] += 1
+n = int(input())
+lst = []
+lst2 = []
+lst3 = []
+for _ in range(n):
+    input_data = input().rstrip()
+    lst.append(input_data)
+    lst2.append(input_data)
+    lst3.append(input_data)
 
-def find():
-    result = []
-    q = deque()
-    for i in range(1, n+1):
-        if indegree[i] == 0:
-            q.append(i)
-    while q:
-        now = q.popleft()
-        result.append(now)
-        for i in graph[now]:
-            indegree[i] -= 1
-            if indegree[i] == 0:
-                q.append(i)
-    for i in result:
-        print(i, end=' ')
-
-find()
+lst.sort()
+lst2.sort(reverse=True)
+if lst == lst3:
+    print('INCREASING')
+elif lst2 == lst3:
+    print('DECREASING')
+elif lst3 != lst and lst3 != lst2:
+    print('NEITHER')
