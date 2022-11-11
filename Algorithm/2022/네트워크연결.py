@@ -31,3 +31,4 @@ for g in graph:
     if find_parent(parent, a) != find_parent(parent, b):
         union_parent(a, b)
         result += cost
+print(result)

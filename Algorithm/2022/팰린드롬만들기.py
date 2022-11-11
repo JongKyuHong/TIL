@@ -19,12 +19,10 @@ for i in range(27):
 
 alphas[oddsindex] -= 1
 for i in range(len(alphas)):
-    #if alphas[i] % 2 != 1:
     for _ in range(alphas[i]//2):
         print(chr(i+65), end='')
 if oddsindex != -1:
     print(chr(oddsindex+65), end='')
 for i in range(len(alphas)-1, -1, -1):
-    #if alphas[i] % 2 != 1:
     for _ in range(alphas[i]//2):
         print(chr(i+65), end='')
