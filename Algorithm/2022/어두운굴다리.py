@@ -12,10 +12,8 @@ for i in range(m):
         gap = max(gap, x[i])
     else:
         if (x[i]-x[i-1])/2 > (x[i]-x[i-1])//2:
-            print('hi')
             gap = max(gap, ((x[i]-x[i-1])//2)+1)
         else:
-            print((x[i]-x[i-1])/2,'hi2')
             gap = max(gap, ((x[i]-x[i-1])//2))
 gap = max(gap, n-x[-1])
 print(gap)
