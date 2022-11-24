@@ -20,7 +20,6 @@ for _ in range(int(input())):
     ans = 0
     while idx <= len(state)-m:
         target = ''
-        print(state[idx:idx+m])
         for i in state[idx:idx+m]:
             target += str(i)
         if x <= int(target) <= y:

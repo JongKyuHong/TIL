@@ -19,6 +19,5 @@ while 1:
     else:
         res.append(q)
         break
-        
 print(*res[::-1])
 
