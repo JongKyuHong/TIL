@@ -23,29 +23,30 @@ def solution(n, paths, gates, summits):
             
             for point, time in all_path[now]:
                 sum_cost = now_cost + time
-                if time > limit:
+                if time > limit or (point in summits and point != end):
                     continue
                 if cost[point] > sum_cost:
                     max_v = max(max_v, time)
                     cost[point] = sum_cost
                     heapq.heappush(q,(sum_cost, point))
+        #print(cost,limit,start,end, 'cost')
         return cost[end] != float('inf')
 
     
-    for gate in gates:
+    #for gate in gates:
         for summit in summits:
             left = 0
             right = max_value
             while left <= right:
                 mid = (left+right)//2
                 if dijkstra(gate, summit, mid):
+                    #print(gate,summit,mid,'gate summit mid')
                     answer.append([summit, mid])
-                    left = mid+1
-                else:
                     right = mid-1
-            
-    answer.sort(key=lambda x:x[1],reverse=True)
+                else:
+                    left = mid+1
+    #print(answer)
+    answer.sort(key=lambda x:x[1])
     return answer[0]
-
 
 print(solution(6,[[1, 2, 3], [2, 3, 5], [2, 4, 2], [2, 5, 4], [3, 4, 4], [4, 5, 3], [4, 6, 1], [5, 6, 1]],[1, 3],[5]))
