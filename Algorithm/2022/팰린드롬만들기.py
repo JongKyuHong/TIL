@@ -25,4 +25,4 @@ if oddsindex != -1:
     print(chr(oddsindex+65), end='')
 for i in range(len(alphas)-1, -1, -1):
     for _ in range(alphas[i]//2):
-        print(chr(i+65), end='')
+        print(chr(i+65), end='')         

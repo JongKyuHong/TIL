@@ -16,7 +16,6 @@ def dfs(target, weight):
             dfs(target+1, weight+lst[i]-k)
             visited[i] = 0
             
-
 for i in range(n):
     if lst[i]-k >= 0:
         visited[i] = 1
