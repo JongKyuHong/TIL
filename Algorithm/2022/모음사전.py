@@ -1,5 +1,3 @@
-from itertools import combinations
-
 def solution(word):
     answer = 0
     w = ['A','E','I','O','U']

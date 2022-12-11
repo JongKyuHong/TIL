@@ -18,7 +18,6 @@ def solution(msg):
                 answer.append(alpha.index(msg[idx:idx+i-1])+1)
                 idx = idx+i-1
                 break
-        #print(idx)
     return answer
 
 print(solution('KAKAO'))
