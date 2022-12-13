@@ -34,7 +34,7 @@ def solution(board):
             if jdx == m:
                 idx += 1
                 jdx = 0
-        print(idx, jdx)
+        #print(idx, jdx)
     return answer**2
 
 print(solution([[0,1,1,1],[1,1,1,1],[1,1,1,1],[0,0,1,0]]))
