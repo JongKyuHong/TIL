@@ -5,7 +5,7 @@ delta = ((0,1),(0,-1),(1,0),(-1,0))
 def bfs():
     while coin:
         r1, c1, r2, c2, cnt = coin.popleft()
-        if cnt > 10:
+        if cnt >= 10:
             return -1
 
         for dr, dc in delta:
