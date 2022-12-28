@@ -1,12 +1,12 @@
-arr=[]
-N, K = map(int, input().split())
-cnt = 0
-for i in range(1, N + 1):
-    if N % i == 0:
-        arr.append(i)
-    cnt += 1
+import sys
+input = sys.stdin.readline
 
-if K > len(arr):
-    print(0)
-else:
-    print(arr[K-1])
+n, k = map(int, input().split()) # n의 약수중 k번째로 작은 수
+cnt = 0
+for i in range(1, n+1):
+    if n % i == 0:
+        cnt += 1
+        if cnt == k:
+            print(i)
+            exit()
+print(0)
