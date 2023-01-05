@@ -1,18 +1,19 @@
-import sys 
+import sys
 input = sys.stdin.readline
 
-k = int(input())
+K = int(input())
 lst = list(map(int, input().split()))
-tree = [[] for _ in range(k)]
+tree = [[] for _ in range(K)]
 
-def makeTree(arr, x):
-    mid = (len(arr)//2)
-    tree[x].append(arr[mid])
-    if len(arr) == 1:
+def makeTree(arr, n):
+    if n >= K:
         return
-    makeTree(arr[:mid],x+1)
-    makeTree(arr[mid+1:],x+1)
+    mid = len(arr)//2
+    tree[n].append(arr[mid])
+    makeTree(arr[:mid],n+1)
+    makeTree(arr[mid+1:],n+1)
 
 makeTree(lst, 0)
-for i in range(k):
-    print(*tree[i])
+
+for i in tree:
+    print(*i)
