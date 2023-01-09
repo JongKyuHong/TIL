@@ -18,5 +18,4 @@ def dfs(left, right, string):
 
 for i in range(n):
     dfs(i, i, N[i])
-print(answer)
 print(len(answer))
