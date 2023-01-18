@@ -12,5 +12,3 @@ else:
         print(K-1)
     else:
         print(K)
-
-
