@@ -27,4 +27,3 @@ def dijkstra(start):
                 heapq.heappush(q, (-tmp, next_node))
 dijkstra(s)
 print(dist[e])
-
