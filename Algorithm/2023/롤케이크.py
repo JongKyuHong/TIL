@@ -3,22 +3,23 @@ input = sys.stdin.readline
 
 N, M = map(int, input().split())
 cakes = list(map(int, input().split()))
-cakes.sort(key=lambda x: (x%10,x))
-cake_cnt = 0
-for cake in cakes:
-    cnt = cake//10
-    if not cake%10:
-        if cnt-1 <= M:
-            cake_cnt += cnt
-            M -= cnt -1
+cakes.sort(key=lambda x: (x%10, x))
+ans = 0
+for i in range(N):
+    tmp = cakes[i]//10
+    #print(cakes[i], M, ans)
+    if cakes[i]%10 == 0:
+        if tmp-1 <= M:
+            M -= (tmp-1)
+            ans += tmp
         else:
-            cake_cnt += M
+            ans += M
             M -= M
     else:
-        if cnt <= M:
-            cake_cnt += cnt
-            M -= cnt
-        else:
-            cake_cnt += M
+        if tmp > M:
+            ans += M
             M -= M
-print(cake_cnt)
+        else:
+            M -= tmp
+            ans += tmp
+print(ans)
