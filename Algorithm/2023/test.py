@@ -1,22 +1,30 @@
 import sys
+import heapq
 input = sys.stdin.readline
 
-N = int(input())
-graph = [list(map(int, input().split())) for _ in range(N)]
-dist = [[1]*N for _ in range(N)]
-for k in range(N):
-    for i in range(N):
-        for j in range(N):
-            if i == j or j == k or i == k:
-                continue
-            if graph[i][j] > graph[i][k] + graph[k][j]:
-                print(-1)
-                exit()
-            elif graph[i][j] == graph[i][k] + graph[k][j]:
-                dist[i][j] = 0
-ans = 0
-for i in range(N):
-    for j in range(i, N):d
-        if dist[i][j]:
-            ans += graph[i][j]
-print(ans)
+p, w = map(int, input().split())
+c, v = map(int, input().split())
+graph = [[] for _ in range(p)]
+for _ in range(w):
+    start, end, width = map(int, input().split())
+    graph[start].append((width, end))
+    graph[end].append((width,start))
+
+visited = [0]*p
+q = []
+heapq.heappush(q, (-float('inf'), c))
+ans = float('inf')
+while q:
+    width, node = heapq.heappop(q)
+    width *= -1
+    if visited[node]:
+        continue
+    visited[node] = 1
+    ans = min(ans, width)
+    if node == v:
+        print(ans)
+        break
+    for next_cost, next_node in graph[node]:
+        heapq.heappush(q, (-next_cost, next_node))
+        
+

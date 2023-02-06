@@ -1,30 +1,34 @@
-from collections import deque
+import heapq
 import sys
 input = sys.stdin.readline
 
 V = int(input())
-graph = [[]*(V+1) for _ in range(V+1)]
+graph = [[] for _ in range(V+1)]
 for _ in range(V):
-    inp = list(map(int, input().split()))
-    node = inp[0]
-    for i in range(1, len(inp)-2, 2):
-        graph[node].append([inp[i+1], inp[i]])
-
+    lst = list(map(int, input().split()))
+    node = lst[0]
+    lst = lst[1:-1]
+    for i in range(0, len(lst), 2):
+        graph[node].append((lst[i+1],lst[i]))
+        
+ans = 0
+visited = [0]*(V+1)
+visited[1] = 1
 def bfs(start):
-    visited = [-1]*(V+1)
-    q = deque()
-    q.append(start)
-    visited[start] = 0
-    _max = [0, 0]
+    global ans
+    q = [[0, start]]
+    dist = [float('inf')]*(V+1)
+    dist[start] = 0
     while q:
-        now = q.popleft()
-        for cost, next in graph[now]:
-            if visited[next] == -1:
-                visited[next] = visited[now] + cost
-                q.append(next)
-                if _max[0] < visited[next]:
-                    _max = visited[next], next
-    return _max
-dis, node = bfs(1)
-dis, node = bfs(node)
-print(dis)
+        cost, node = heapq.heappop(q)
+        if dist[node] < cost:
+            continue
+        for next_cost, next_node in graph[node]:
+            d = next_cost + cost
+            if dist[next_node] > d:
+                dist[next_node] = d
+                heapq.heappush(q, [d, next_node])
+    return dist
+dist = bfs(1)
+dist = bfs(dist.index(max(dist[1:])))
+print(max(dist[1:]))

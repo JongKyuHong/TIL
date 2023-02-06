@@ -12,11 +12,12 @@ for _ in range(w):
 
 visited = [0]*p
 q = []
-heapq.heappush(q, [-float('inf'), c])
+heapq.heappush(q, [-float('inf'), c, 0])
 ans = float('inf')
 
 while q:
-    cost, node = heapq.heappop(q)
+    cost, node, prev = heapq.heappop(q)
+    print(cost, node, prev)
     cost *= -1
 
     if visited[node]:
@@ -29,4 +30,4 @@ while q:
         break
 
     for next_cost, next_node in graph[node]:
-        heapq.heappush(q, (next_cost, next_node))
+        heapq.heappush(q, (-next_cost, next_node, node))
