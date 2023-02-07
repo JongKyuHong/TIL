@@ -15,7 +15,3 @@ while 1:
             num = tmp.zfill(len_)
             cnt += 1
     print(cnt)
-    print(num)
-    
-
-
