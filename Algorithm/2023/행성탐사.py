@@ -22,9 +22,6 @@ for i in range(1, M+1):
         S[i][j][1] = S[i][j-1][1] + S[i-1][j][1] - S[i-1][j-1][1] + t[1]
         S[i][j][2] = S[i][j-1][2] + S[i-1][j][2] - S[i-1][j-1][2] + t[2]
 
-for i in S:
-    print(i)
-
 for _ in range(K):
     a, b, c, d = map(int, input().split())
     a, b = a-1, b-1

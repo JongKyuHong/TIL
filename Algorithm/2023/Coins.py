@@ -13,6 +13,3 @@ for _ in range(T):
         for j in range(coins[i], M+1):
             dp[j] += dp[j-coins[i]]
     print(dp[M])
-
-
-        

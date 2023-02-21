@@ -1,5 +1,6 @@
 import sys
 input = sys.stdin.readline
+sys.setrecursionlimit(10**6)
 
 n, m = map(int, input().split()) # 회사의 직원수, 최초의 칭찬의 횟수
 parent = list(map(int, input().split()))
