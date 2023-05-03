@@ -3,20 +3,24 @@ input = sys.stdin.readline
 
 N = int(input())
 days = [0]*366
+idx = 0
 for _ in range(N):
     s, e = map(int, input().split())
     for i in range(s, e+1):
         days[i] += 1
 
-row, col = 0, 0
 ans = 0
-for i in range(366):
-    if days[i] != 0:
-        row = max(row, days[i])
-        col += 1
+cnt = 0
+max_v = 0
+for i in range(1, 366):
+    if days[i]:
+        cnt += 1
+        max_v = max(max_v, days[i])
     else:
-        ans += row*col
-        row, col = 0, 0
-
-ans += row*col
+        ans += cnt*max_v
+        cnt = 0
+        max_v = 0
+if cnt:
+    ans += cnt*max_v
 print(ans)
+    
