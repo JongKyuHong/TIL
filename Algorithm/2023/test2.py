@@ -1,11 +1,10 @@
-a = 27500 
-b = 750
+a = 32000
 cnt = 0
 total = 0
-while cnt < 15:
-    total += a+b
-    a += b
+while cnt < 14:
+    total += a
+    a += 750
+    total -= 4000
     cnt += 1
-print(total-11000 + (36500*5))
+print(total + 20000)
 
-#697500
