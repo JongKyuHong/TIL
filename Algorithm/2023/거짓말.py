@@ -27,7 +27,7 @@ parent = [i for i in range(N+1)]
 
 ans = 0
 result = []
-for _ in range(M):
+for _ in range(M):1
     input_ = list(input().rstrip().split())
     people_cnt, people = input_[0], input_[1:]
     people.sort()
