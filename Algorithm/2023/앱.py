@@ -22,7 +22,6 @@ def bfs(r, c, start):
         r, c = cow[i][0], cow[i][1]
         if not visited[r][c]:
             ans += 1
-            
     return ans
 
 N, K, R = map(int, input().split())
