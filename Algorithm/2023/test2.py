@@ -1,10 +1,9 @@
-a = 32000
-cnt = 0
-total = 0
-while cnt < 14:
-    total += a
-    a += 750
-    total -= 4000
+a = 3500
+cnt = 3
+ans = 3500
+while cnt < 51:
     cnt += 1
-print(total + 20000)
+    a += 750
+    ans += a
+print(ans*0.03)
 
