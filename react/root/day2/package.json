@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "webpack serve --env development"
   },
   "author": "jongkyu",
   "license": "ISC",
@@ -13,7 +13,15 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.22.8",
+    "@babel/plugin-proposal-class-properties": "^7.18.6",
+    "@babel/preset-env": "^7.22.7",
+    "@babel/preset-react": "^7.22.5",
+    "@pmmmwh/react-refresh-webpack-plugin": "^0.5.10",
+    "babel-loader": "^9.1.3",
+    "react-refresh": "^0.14.0",
     "webpack": "^5.88.1",
-    "webpack-cli": "^5.1.4"
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1"
   }
 }
