@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import Try from "./Try";
 
 const getNumbers = () => {
@@ -16,6 +16,7 @@ const NumberBaseBall = () => {
   const [value, setValue] = useState("");
   const [answer, setAnswer] = useState(getNumbers);
   const [tries, setTries] = useState([]);
+  const inputEl = useRef(null);
 
   const onSubmitForm = (e) => {
     e.preventDefault();
@@ -26,6 +27,7 @@ const NumberBaseBall = () => {
       setValue("");
       setAnswer(getNumbers());
       setTries([]);
+      inputEl.current.focus();
     } else {
       // 답이 틀리면
       console.log(answer);
@@ -38,6 +40,7 @@ const NumberBaseBall = () => {
         setValue("");
         setAnswer(getNumbers());
         setTries([]);
+        inputEl.current.focus();
       } else {
         for (let i = 0; i < 4; i += 1) {
           if (answerArray[i] === answer[i]) {
@@ -51,6 +54,7 @@ const NumberBaseBall = () => {
           { try: value, result: `${strike} 스트라이크 ${ball} 볼입니다` },
         ]);
         setValue("");
+        inputEl.current.focus();
       }
     }
   };
@@ -63,7 +67,12 @@ const NumberBaseBall = () => {
     <>
       <h1>{result}</h1>
       <form onSubmit={onSubmitForm}>
-        <input maxLength={4} value={value} onChange={onChangeInput} />
+        <input
+          ref={inputEl}
+          maxLength={4}
+          value={value}
+          onChange={onChangeInput}
+        />
       </form>
       <div>시도: {tries.length}</div>
       <ul>
