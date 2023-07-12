@@ -56,7 +56,7 @@ class RSPClass extends Component {
     }
   };
 
-  onClickBtn = (choice) => {
+  onClickBtn = (choice) => () => {
     const { imgCoord } = this.state;
     clearInterval(this.interval);
     const myScore = scores[choice];
@@ -67,6 +67,13 @@ class RSPClass extends Component {
         result: "비겼습니다.",
       });
     } else if ([-1, 2].includes(diff)) {
+      this.setState((prevState) => {
+        return {
+          result: "이겼습니다!",
+          score: prevState.score + 1,
+        };
+      });
+    } else {
       this.setState((prevState) => {
         return {
           result: "졌습니다.",
