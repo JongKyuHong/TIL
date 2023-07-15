@@ -56,7 +56,16 @@
   - useEffect를 사용하건데 componentDidMount가 아니라 componentDidUpdate일때만 실행하고 싶다면 useRef로 값을 만들어서 조건문을 걸어서 최초 렌더링시에 실행이 되지 않게끔 하자.
 
 - useReducer
+
   - dispatch안에 들어가는건 action객체라고 부름, dispatch로 action을 실행, action을 해석해서 수정해주는것이 리듀서
   - state는 직접 수정할 수 없음, state를 수정하려면 action을 만들고 그 action을 dispatch해서 state를 바꿈
   - action을 어떻게 처리할지는 reducer에서 관리함
   - action의 이름은 대문자로 처리하는게 국룰! 상수로 빼서 사용하자
+
+- Context API
+  - Provider로 묶어주어야 그 아래 컴포넌트에서 데이터에 접근가능
+  - 자식에게 전달해줄 데이터는 value
+  - 성능 최적화 하기가 힘듬
+  - <TableContext.Provider value={{ tableData: state.tableData, dispatch }}> 이런식으로 사용하면
+  - 렌더링시마다 새로운 객체가 생김
+  - useMemo를 사용하자
