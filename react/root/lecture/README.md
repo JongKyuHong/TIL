@@ -63,9 +63,24 @@
   - action의 이름은 대문자로 처리하는게 국룰! 상수로 빼서 사용하자
 
 - Context API
+
   - Provider로 묶어주어야 그 아래 컴포넌트에서 데이터에 접근가능
   - 자식에게 전달해줄 데이터는 value
   - 성능 최적화 하기가 힘듬
   - <TableContext.Provider value={{ tableData: state.tableData, dispatch }}> 이런식으로 사용하면
   - 렌더링시마다 새로운 객체가 생김
   - useMemo를 사용하자
+
+- useLayoutEffect
+
+  - 화면을 그리기 전에 실행
+  - useEffect보다 실행순서가 빨라서 state업데이트시 화면 깜빡임이 발생할때 useLayoutEffect를 가끔 사용해도 좋다.
+
+- useTransition
+
+  - startTransition, 업데이트를 바로 하지 않아도 괜찮은 것들을 넣음
+  - loading, 로딩시 무엇인가 표시하고 싶다면
+
+- useDeferredValue
+  - useMemo에서 주로 사용
+  -
