@@ -18,3 +18,70 @@
 - prompt 사용자로부터 값을 받음
 - alert 사용자에게 경고 메시지 표시
 - confirm 사용자의 확인을 요구
+
+- border-box border를 기준으로 크기지정
+- 함수가 함수를 리턴하는 함수를 고차함수라고 부른다. high order function
+- removeEventListener 를 사용하려면 함수를 변수에 저장한 후에 add, remove해야함
+
+- this
+
+  - ES6에서는 use strict모드가 자동 적용
+  - this는 함수가 호출될때 정해진다.
+
+  ```
+    const obj = {
+      name : 'jonyku',
+      sayName: function(){
+        console.log(this.name);
+      },
+    };
+
+    obj.sayName() ---> 'jongkyu'
+    const aaa = obj.sayName;
+    aaa() ---> 'window'
+  ```
+
+  - this가 바뀌는 경우 (기본적으로는 window)
+
+    - new붙여서 호출하는 경우
+    - 앞에 객체가 붙어서 객체의 메소드를 호출하는 경우
+    - bind, apply, call
+
+  - 그렇다면
+
+  ```
+    const obj = {
+      name:'jongkyu',
+      sayName(){ // sayName: function()하고 같음
+        console.log(this.name);
+        function inner(){
+          console.log(this.name);
+        }
+        inner();
+      }
+    }
+    obj.sayName(); //의 출력값은?
+  ```
+
+  - 첫번째 console.log()에서는 jongkyu가 출력되고, 두번째 console.log()에서는 window가 출력됨(빈칸)
+  - inner를 호출할 당시 this를 바꾸는 행동을 안했기 때문에
+  - 또 다른 예제
+
+  ```
+    const obj = {
+      name:'jongkyu',
+      sayName(){ // sayName: function()하고 같음
+        console.log(this.name);
+        const inner = () => {
+          console.log(this.name);
+        }
+        inner();
+      }
+    }
+    obj.sayName(); //의 출력값은?
+  ```
+
+  - inner를 화살표 함수로 바꿈
+  - 이때 출력은 둘다 jongkyu로 나옴
+  - 왜그럴까??
+    - 화살표 함수는 부모의 this를 사용, 여기서 호출이 obj.sayName()으로 호출 되었기 때문에 this는 jongkyu를 가리킬수 있게 됨
