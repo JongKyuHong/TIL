@@ -84,4 +84,48 @@
   - inner를 화살표 함수로 바꿈
   - 이때 출력은 둘다 jongkyu로 나옴
   - 왜그럴까??
+
     - 화살표 함수는 부모의 this를 사용, 여기서 호출이 obj.sayName()으로 호출 되었기 때문에 this는 jongkyu를 가리킬수 있게 됨
+
+  - this를 분석할 수 없는 케이스
+    - addEventListener('click',function(){console.log(this)})와 같이 내부에서 함수를 어떻게 호출하는지 모르면 this를 알 수 없다.
+    - addEventListener('click', ()=>{console.log(this)}) 와 같이 그냥 화살표함수를 사용하면 화살표함수는 부모의 this를 따라가기 때문에 this를 알 수 있다.
+    - 선언과 호출 구분을 잘합시다.
+
+- 프로미스
+
+  - 콜백 헬을 방지하기 위함
+  - 내용이 실행이 되었지만 결과를 아직 반환하지 않은 객체
+  - Then을 붙이면 결과를 반환함
+  - 실행이 완료되지 않았으면 완료된 후에 Then 내부 함수가 실행됨
+  - Resolve(성공리턴값) -> Then으로 연결
+  - Reject(실패리턴값) -> catch로 연결
+  - Finally부분은 무조건 실행됨
+  - Promise.all(배열)로 여러 개의 프로미스를 동시에 실행 가능함 -> allSettled로 실패한 것만 추려낼 수 있어서 allSettled사용
+  - 프로미스는 실행됐는데 결과 값을 나중에 쓸 수 있음 <- 큰 장점
+
+- async/await
+
+  - A싱크라고 읽어라!
+  - ajax
+  - 변수 = await 프로미스; 인경우 프로미스가 resolve된 값이 변수에 저장
+  - async함수에서 리턴한 값은 then으로 받아야함 혹은 const name = await main()처럼 await를 붙여야함
+  - 대신 await은 catch가 없기 때문에 try/catch문을 사용해야 함 ,, reject가 없어서
+
+- 비동기
+
+  - 동시가 아닌 순서의 문제
+  - 동기코드는 위에서 아래 왼쪽에서 오른쪽
+  - 비동기코드는 코드순서랑 실제 실행 순서가 다르다.
+  - 자바스크립트는 싱글스레드라서 동시라는 개념이 없다.
+  - 백그라운드에 들어가는 작업들은 동시에 가능 (자바스크립트가 아니므로, setTimeout의 timer, promise, ajax요청, eventListener 등 백그라운드에 들어감, 비동기면 백그라운드를 거의 거친다고 보면 됨)
+  - 백그라운드에 들어간 작업은 task queue (macro, micro) 를 거쳐서 call stack으로 올라감
+  - 이벤트 루프는 큐에서 호출스택으로 작업을 하나씩 올려줌 (호출스택이 비어있을경우)
+
+- task queue
+  - micro
+    - promise
+    - process.nextTick
+    - micro가 우선순위가 높아서 먼저 실행된다.
+  - macro
+    - 나머지 모두
