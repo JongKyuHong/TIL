@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #root {
+        display: flex;
+        flex-direction: column;
+        width: 35em;
+      }
+
+      #control {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        height: 3em;
+        border: 1px solid black;
+        margin-bottom: 10px;
+      }
+      #input_ {
+        width: 25em;
+        height: 1.5em;
+        margin: 10px;
+      }
+      button {
+        height: 2em;
+        margin: 3px;
+      }
+      #board {
+        /* width: 35em; */
+        height: 20em;
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root">
+      <div id="control">
+        <input id="input_" />
+        <button id="search">검색</button>
+        <button id="add">글쓰기</button>
+      </div>
+      <div id="board"></div>
+    </div>
+    <script>
+      let board = document.querySelector("#board");
+      let input_ = document.querySelector("#input_");
+      let idx = 0;
+      localStorage.clear();
+      const onSearch = () => {
+        // 검색, 게시글에 등록된 것 중 같은게 있으면 검열 해줌
+        console.log("asdf");
+      };
+      const onAdd = () => {
+        if (!input_.value) {
+          alert("게시글을 입력해주세요");
+          return;
+        }
+        // 비밀번호 입력
+        let password = prompt("패스워드를 입력해주세요");
+
+        // 게시글 등록
+        let div = document.createElement("div");
+        div.innerText = input_.value;
+
+        // 수정 삭제 버튼 등록
+        let edit = document.createElement("button");
+        edit.innerText = "수정";
+        let delete_ = document.createElement("button");
+        delete_.innerText = "삭제";
+
+        // id 등록
+        div.setAttribute("id", String(idx));
+        edit.setAttribute("id", String(idx));
+        delete_.setAttribute("id", String(idx));
+
+        localStorage.setItem(String(idx), password);
+        localStorage.setItem(String(idx) + password, input_.value);
+        input_.value = "";
+
+        edit.addEventListener("click", () => {
+          let input_password = prompt("패스워드를 입력하세요");
+          let id_ = edit.getAttribute("id");
+          if (input_password === localStorage.getItem(id_)) {
+            // let input_key = localStorage.getItem(input_password);
+            // 누른 친구의 idx를 뽑아옴
+            let edit_value = prompt(
+              "수정",
+              localStorage.getItem(id_ + input_password)
+            );
+            if (edit_value) {
+              // 취소를 눌렀을 경우
+              localStorage.setItem(id_ + password, edit_value);
+              document.getElementById(`${id_}`).innerText = edit_value;
+            }
+          } else {
+            alert("패스워드가 틀렸습니다.");
+          }
+        });
+
+        delete_.addEventListener("click", () => {
+          let input_password = prompt("패스워드를 입력하세요");
+          let id_ = edit.getAttribute("id");
+          if (input_password === localStorage.getItem(id_)) {
+            for (let i = 0; i < 3; i++) {
+              board.removeChild(document.getElementById(`${id_}`));
+            }
+            alert("삭제되었습니다.");
+          } else {
+            alert("패스워드가 틀렸습니다.");
+          }
+        });
+
+        // 실제 등록
+        board.appendChild(div);
+        board.appendChild(edit);
+        board.appendChild(delete_);
+        idx += 1;
+      };
+
+      document.querySelector("#search").addEventListener("click", onSearch);
+      document.querySelector("#add").addEventListener("click", onAdd);
+    </script>
+  </body>
+</html>
