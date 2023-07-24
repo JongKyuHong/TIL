@@ -118,14 +118,23 @@
   - 동기코드는 위에서 아래 왼쪽에서 오른쪽
   - 비동기코드는 코드순서랑 실제 실행 순서가 다르다.
   - 자바스크립트는 싱글스레드라서 동시라는 개념이 없다.
-  - 백그라운드에 들어가는 작업들은 동시에 가능 (자바스크립트가 아니므로, setTimeout의 timer, promise, ajax요청, eventListener 등 백그라운드에 들어감, 비동기면 백그라운드를 거의 거친다고 보면 됨)
+  - 백그라운드(브라우저, OS, 자바스크립트 엔진)에 들어가는 작업들은 동시에 가능 (자바스크립트가 아니므로, setTimeout의 timer, promise, ajax요청, eventListener 등 백그라운드에 들어감, 비동기면 백그라운드를 거의 거친다고 보면 됨)
   - 백그라운드에 들어간 작업은 task queue (macro, micro) 를 거쳐서 call stack으로 올라감
   - 이벤트 루프는 큐에서 호출스택으로 작업을 하나씩 올려줌 (호출스택이 비어있을경우)
 
 - task queue
+
   - micro
     - promise
     - process.nextTick
     - micro가 우선순위가 높아서 먼저 실행된다.
   - macro
     - 나머지 모두
+
+- 무지성 await연달아쓰기 금지!
+  - 궂이 순차적으로 할 필요 없는 작업들은 요청을 동시에 보내버리고 Pormise.allSettled로 받는것이 시간상 이득이다.
+  - async사용할때 무지성 await사용 금지!
+
+
+- closure
+  - 

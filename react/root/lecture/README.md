@@ -83,4 +83,4 @@
 
 - useDeferredValue
   - useMemo에서 주로 사용
-  -
+  - 업데이트가 늦게 돼도 되는

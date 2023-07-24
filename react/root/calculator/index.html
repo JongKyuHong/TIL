@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #whole {
+        display: flex;
+        flex-direction: column;
+      }
+      #row {
+        display: flex;
+        flex-direction: row;
+      }
+      #state {
+        width: 235px;
+        height: 40px;
+        border: 1px solid black;
+        border-radius: 2px;
+        margin-left: 5px;
+      }
+      button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 50px;
+        height: 40px;
+        border: 1px solid black;
+        border-radius: 2px;
+        margin: 5px;
+      }
+      /* #minus #plus #multiply #divide{
+
+      } */
+    </style>
+  </head>
+  <body>
+    <div id="whole">
+      <div>
+        <div id="state"></div>
+      </div>
+      <div id="row">
+        <button id="num-7">7</button>
+        <button id="num-8">8</button>
+        <button id="num-9">9</button>
+        <button id="divide">/</button>
+      </div>
+      <div id="row">
+        <button id="num-4">4</button>
+        <button id="num-5">5</button>
+        <button id="num-6">6</button>
+        <button id="multiply">X</button>
+      </div>
+      <div id="row">
+        <button id="num-1">1</button>
+        <button id="num-2">2</button>
+        <button id="num-3">3</button>
+        <button id="minus">-</button>
+      </div>
+      <div id="row">
+        <button id="num-0">0</button>
+        <button id="C">C</button>
+        <button id="calculate">=</button>
+        <button id="plus">+</button>
+      </div>
+    </div>
+    <script>
+      let state = document.querySelector("#state");
+
+      //   let plus = document.querySelector("plus");
+      //   let minus = document.querySelector("minus");
+      //   let multiply = document.querySelector("multiply");
+      //   let divide = document.querySelector("divide");
+      let op = "";
+      let first = "";
+      let second = "";
+      let result = "";
+      const onClickNumber = (e) => {
+        console.log(first, second, "asdf");
+        if (op === "" && first === "") {
+          state.innerText += e.target.innerText;
+          first = e.target.innerText;
+        } else if (second === "") {
+          // 연산자를 골랐다면
+          state.innerText += " " + e.target.innerText;
+          second = e.target.innerText;
+        }
+      };
+
+      const onClickOperator = (e) => {
+        if (e.target.innerText === "=") {
+          // 계산을 하라
+          console.log(first, second, "asdf");
+          if (second) {
+            if (op === "+") {
+              result = parseInt(first) + parseInt(second);
+            } else if (op === "-") {
+              result = parseInt(first) - parseInt(second);
+            } else if (op === "X") {
+              result = parseInt(first) * parseInt(second);
+            } else if (op === "/") {
+              result = parseInt(first) / parseInt(second);
+            }
+            state.innerText = result;
+            second = "";
+            op = "";
+            first = result;
+          } else if (first) {
+            state.innerText = first;
+          }
+        } else if (e.target.innerText === "C") {
+          first = "";
+          second = "";
+          op = "";
+          result = "";
+          state.innerText = "";
+        } else if (op !== "") {
+          // 이미 연산자가 있다면.
+          state.innerText = state.innerText.slice(
+            0,
+            state.innerText.length - 1
+          );
+          state.innerText += " " + e.target.innerText;
+          op = e.target.innerText;
+        } else {
+          state.innerText += " " + e.target.innerText;
+          op = e.target.innerText;
+        }
+      };
+
+      document
+        .querySelector("#calculate")
+        .addEventListener("click", onClickOperator);
+      document.querySelector("#C").addEventListener("click", onClickOperator);
+      document
+        .querySelector("#plus")
+        .addEventListener("click", onClickOperator);
+      document
+        .querySelector("#minus")
+        .addEventListener("click", onClickOperator);
+      document
+        .querySelector("#multiply")
+        .addEventListener("click", onClickOperator);
+      document
+        .querySelector("#divide")
+        .addEventListener("click", onClickOperator);
+
+      document.querySelector("#num-0").addEventListener("click", onClickNumber);
+      document.querySelector("#num-1").addEventListener("click", onClickNumber);
+      document.querySelector("#num-2").addEventListener("click", onClickNumber);
+      document.querySelector("#num-3").addEventListener("click", onClickNumber);
+      document.querySelector("#num-4").addEventListener("click", onClickNumber);
+      document.querySelector("#num-5").addEventListener("click", onClickNumber);
+      document.querySelector("#num-6").addEventListener("click", onClickNumber);
+      document.querySelector("#num-7").addEventListener("click", onClickNumber);
+      document.querySelector("#num-8").addEventListener("click", onClickNumber);
+      document.querySelector("#num-9").addEventListener("click", onClickNumber);
+    </script>
+  </body>
+</html>
