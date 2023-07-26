@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Timer</title>
+    <style>
+      .root {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .timer {
+        display: flex;
+        flex-direction: row;
+      }
+      div {
+        font: bold;
+        font-size: 100px;
+      }
+      button {
+        width: 300px;
+        font-size: 50px;
+      }
+      label {
+        font-size: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="root">
+      <label>#1 study!!</label>
+      <div class="timer">
+        <div class="minute">25</div>
+        <div>:</div>
+        <div class="second">00</div>
+      </div>
+      <button>START</button>
+    </div>
+    <script>
+      let date = new Date();
+      console.log(date);
+      let minute = document.querySelector(".minute");
+      let second = document.querySelector(".second");
+      let button = document.querySelector("button");
+      let flag = true;
+      let timer_flag = true;
+      let interval;
+      button.addEventListener("click", () => {
+        if (flag) {
+          button.innerText = "Pause";
+          interval = setInterval(() => {
+            if (parseInt(second.innerText) === 0) {
+              minute.innerText = parseInt(minute.innerText) - 1;
+              second.innerText = "59";
+            } else {
+              second.innerText = parseInt(second.innerText) - 1;
+            }
+          }, 1000);
+          flag = false;
+        } else {
+          button.innerText = "Start";
+          clearInterval(interval);
+          flag = true;
+        }
+      });
+    </script>
+  </body>
+</html>
