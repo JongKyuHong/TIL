@@ -18,51 +18,167 @@
         font: bold;
         font-size: 100px;
       }
-      button {
+      .start_button {
         width: 300px;
         font-size: 50px;
       }
       label {
         font-size: 30px;
       }
+      .state > button {
+        width: 100px;
+        font-size: 30px;
+      }
     </style>
   </head>
   <body>
     <div class="root">
-      <label>#1 study!!</label>
+      <label class="root_setting">#1 study!!</label>
+      <div class="state">
+        <button class="study_button">study</button>
+        <button class="break_button">break</button>
+      </div>
       <div class="timer">
         <div class="minute">25</div>
         <div>:</div>
         <div class="second">00</div>
       </div>
-      <button>START</button>
+      <button class="start_button">Start</button>
     </div>
     <script>
       let date = new Date();
       console.log(date);
+      let root_setting = document.querySelector(".root_setting");
       let minute = document.querySelector(".minute");
       let second = document.querySelector(".second");
-      let button = document.querySelector("button");
+      let start_button = document.querySelector(".start_button");
+      let study_button = document.querySelector(".study_button");
+      let break_button = document.querySelector(".break_button");
       let flag = true;
       let timer_flag = true;
       let interval;
-      button.addEventListener("click", () => {
+      let default_minute = "25";
+      let default_minute_break = "5";
+      let default_second = "0";
+      let default_second_break = "0";
+      let count;
+      let break_count;
+      let break_flag = false;
+      break_count = parseInt(localStorage.getItem("break_count"));
+      count = parseInt(localStorage.getItem("count"));
+      if (count) {
+        root_setting.innerText = `# ${count} study!!`;
+      } else {
+        count = 1;
+        localStorage.setItem("count", count);
+        root_setting.innerText = `# ${count} study!!`;
+      }
+
+      if (!break_count) {
+        break_count = 1;
+        localStorage.setItem("breaK_count", break_count);
+      }
+
+      // event
+      // 시작 버튼 클릭
+      start_button.addEventListener("click", () => {
         if (flag) {
-          button.innerText = "Pause";
+          start_button.innerText = "Pause";
           interval = setInterval(() => {
-            if (parseInt(second.innerText) === 0) {
-              minute.innerText = parseInt(minute.innerText) - 1;
+            if (
+              parseInt(second.innerText) === 0 &&
+              parseInt(minute.innerText) === 0
+            ) {
+              count += 1;
+              localStorage.setItem("count", count);
+              root_setting.innerText = `# ${count} study!!`;
+              start_button.innerText = "Start";
+              clearInterval(interval);
+              flag = true;
+              minute.innerText = default_minute;
+              second.innerText = default_second;
+            } else if (parseInt(second.innerText) === 0) {
+              tmp = String(parseInt(minute.innerText) - 1);
+              if (tmp.length < 2) {
+                minute.innerText = "0" + tmp;
+              }
               second.innerText = "59";
             } else {
-              second.innerText = parseInt(second.innerText) - 1;
+              tmp = String(parseInt(second.innerText) - 1);
+              if (tmp.length < 2) {
+                second.innerText = `0${tmp}`;
+              } else {
+                second.innerText = tmp;
+              }
             }
           }, 1000);
           flag = false;
         } else {
-          button.innerText = "Start";
+          start_button.innerText = "Start";
           clearInterval(interval);
           flag = true;
         }
+      });
+
+      // 시간 세팅
+      minute.addEventListener("click", () => {
+        if (flag) {
+          let setting_value = prompt("분 입력");
+          if (setting_value) {
+            if (setting_value.length < 2) {
+              setting_value = `0${setting_value}`;
+            }
+            if (break_flag) {
+              default_minute_break = setting_value;
+            } else {
+              default_minute = setting_value;
+            }
+            minute.innerText = setting_value;
+          }
+        }
+      });
+
+      second.addEventListener("click", () => {
+        if (flag) {
+          let setting_value = prompt("초 입력");
+          if (setting_value) {
+            if (setting_value.length < 2) {
+              setting_value = `0${setting_value}`;
+            }
+            if (break_flag) {
+              default_second_break = setting_value;
+            } else {
+              default_second = setting_value;
+            }
+            second.innerText = setting_value;
+          }
+        }
+      });
+      // study button 디폴트 세팅
+      study_button.addEventListener("click", () => {
+        break_flag = false;
+        if (default_minute.length < 2) {
+          default_minute = `0${default_minute}`;
+        }
+        if (default_second.length < 2) {
+          default_second = `0${default_second}`;
+        }
+        minute.innerText = default_minute;
+        second.innerText = default_second;
+        root_setting.innerText = `#${count} study!!`;
+      });
+
+      break_button.addEventListener("click", () => {
+        break_flag = true;
+        if (default_minute_break.length < 2) {
+          default_minute_break = `0${default_minute_break}`;
+        }
+        if (default_second_break.length < 2) {
+          default_second_break = `0${default_second_break}`;
+        }
+        minute.innerText = default_minute_break;
+        second.innerText = default_second_break;
+        root_setting.innerText = `#${break_count} break~~`;
       });
     </script>
   </body>
