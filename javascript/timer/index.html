@@ -46,8 +46,6 @@
       <button class="start_button">Start</button>
     </div>
     <script>
-      let date = new Date();
-      console.log(date);
       let root_setting = document.querySelector(".root_setting");
       let minute = document.querySelector(".minute");
       let second = document.querySelector(".second");
@@ -154,6 +152,7 @@
           }
         }
       });
+
       // study button 디폴트 세팅
       study_button.addEventListener("click", () => {
         break_flag = false;

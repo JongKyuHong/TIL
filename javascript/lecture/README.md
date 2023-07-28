@@ -98,11 +98,11 @@
   - 내용이 실행이 되었지만 결과를 아직 반환하지 않은 객체
   - Then을 붙이면 결과를 반환함
   - 실행이 완료되지 않았으면 완료된 후에 Then 내부 함수가 실행됨
-  - Resolve(성공리턴값) -> Then으로 연결
-  - Reject(실패리턴값) -> catch로 연결
-  - Finally부분은 무조건 실행됨
-  - Promise.all(배열)로 여러 개의 프로미스를 동시에 실행 가능함 -> allSettled로 실패한 것만 추려낼 수 있어서 allSettled사용
-  - 프로미스는 실행됐는데 결과 값을 나중에 쓸 수 있음 <- 큰 장점
+  - Resolve(성공 리턴 값) -> Then으로 연결
+  - Reject(실패 리턴 값) -> catch로 연결
+  - Finally 부분은 무조건 실행됨
+  - Promise.all(배열)로 여러 개의 프로미스를 동시에 실행 가능함 -> allSettled로 실패한 것만 추려낼 수 있어서 allSettled 사용
+  - 프로미스는 실행됐는데 결괏값을 나중에 쓸 수 있음 <- 큰 장점
 
 - async/await
 
@@ -131,10 +131,6 @@
   - macro
     - 나머지 모두
 
-- 무지성 await연달아쓰기 금지!
-  - 궂이 순차적으로 할 필요 없는 작업들은 요청을 동시에 보내버리고 Pormise.allSettled로 받는것이 시간상 이득이다.
-  - async사용할때 무지성 await사용 금지!
-
-
-- closure
-  - 
+- 무지성 await 연달아 쓰기 금지!
+  - 굳이 순차적으로 할 필요 없는 작업들은 요청을 동시에 보내버리고 Promise.allSettled로 받는 것이 시간상 이득이다.
+  - async 사용할 때 무지성 await 사용 금지!

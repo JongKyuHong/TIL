@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .root {
+        display: flex;
+        flex-direction: column;
+      }
+      button {
+        width: 200px;
+        height: 200px;
+        font-size: 30x;
+        border-radius: 30%;
+      }
+      .state {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+      }
+      .textarea {
+        font-size: 18px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="root">
+      <button>뽑기</button>
+      <div class="state">
+        <div id="9">히든 : 0</div>
+        <div id="8">로얄 : 0</div>
+        <div id="7">죠그 : 0</div>
+        <div id="6">초궁 : 0</div>
+        <div id="5">궁극 : 0</div>
+        <div id="4">완전 : 0</div>
+        <div id="3">성숙 : 0</div>
+        <div id="2">성장 : 0</div>
+        <div id="1">유년 : 0</div>
+        <div id="0">유아 : 0</div>
+      </div>
+      <div class="state">
+        <div class="total">총 뽑기 수 : 0</div>
+        <div class="minerals_cnt">총 사용 미네랄 : 0</div>
+      </div>
+      <div class="textarea"></div>
+    </div>
+    <script>
+      let button = document.querySelector("button");
+      let total_div = document.querySelector(".total");
+      let div = document.querySelector(".textarea");
+      let minerals_cnt = document.querySelector(".minerals_cnt");
+      let minerals = 0;
+      11;
+      let t = 0;
+      let t0 = 0;
+      let t1 = 0;
+      let t2 = 0;
+      let t3 = 0;
+      let t4 = 0;
+      let t5 = 0;
+      let t6 = 0;
+      let t7 = 0;
+      let t8 = 0;
+      let t9 = 0;
+      let total = 0;
+
+      const onRoulette = () => {
+        let grade = Math.floor(Math.random() * 10000);
+        let monster_type = Math.floor(Math.random() * 3);
+        minerals += 20;
+        if (grade === 0) {
+          //console.log("히든");
+          t = 9;
+        } else if (grade < 4) {
+          //console.log("로얄");
+          t = 8;
+        } else if (grade < 8) {
+          //console.log("죠그레스");
+          t = 7;
+        } else if (grade < 30) {
+          //console.log("초궁극체");
+          t = 6;
+        } else if (grade < 101) {
+          //console.log("궁극체");
+          t = 5;
+        } else if (grade < 301) {
+          //console.log("완전체");
+          t = 4;
+        } else if (grade < 701) {
+          //console.log("성숙기");
+          minerals -= 25;
+          t = 3;
+        } else if (grade < 1501) {
+          //console.log("성장기");
+          minerals -= 20;
+          t = 2;
+        } else if (grade < 2801) {
+          //console.log("유년기");
+          minerals -= 15;
+          t = 1;
+        } else {
+          //console.log("유아기");
+          minerals -= 10;
+          t = 0;
+        }
+        minerals_cnt.innerText =
+          minerals_cnt.innerText.slice(0, 11) + String(minerals);
+        let name = "";
+        let text = "";
+        let tmp = "";
+        if (monster_type == 0) {
+          switch (t) {
+            case 0:
+              name = "깜몬";
+              t0 += 1;
+              document.getElementById(`${t}`).innerText =
+                document.getElementById(`${t}`).innerText.slice(0, 5) +
+                String(t0);
+              total += 1;
+              total_div.innerText =
+                total_div.innerText.slice(0, 9) + String(total);
+              break;
+            case 1:
+              name = "코로몬";
+              t1 += 1;
+              document.getElementById(`${t}`).innerText =
+                document.getElementById(`${t}`).innerText.slice(0, 5) +
+                String(t1);
+              total += 1;
+              total_div.innerText =
+                total_div.innerText.slice(0, 9) + String(total);
+              break;
+            case 2:
+              name = "아구몬";
+              t2 += 1;
+              document.getElementById(`${t}`).innerText =
+                document.getElementById(`${t}`).innerText.slice(0, 5) +
+                String(t2);
+              total += 1;
+              total_div.innerText =
+                total_div.innerText.slice(0, 9) + String(total);
+              break;
+            case 3:
+              name = "그레이몬";
+              t3 += 1;
+              document.getElementById(`${t}`).innerText =
+                document.getElementById(`${t}`).innerText.slice(0, 5) +
+                String(t3);
+              total += 1;
+              total_div.innerText =
+                total_div.innerText.slice(0, 9) + String(total);
+              break;
+            case 4:
+              name = "메탈그레이몬";
+              t4 += 1;
+              document.getElementById(`${t}`).innerText =
+                document.getElementById(`${t}`).innerText.slice(0, 5) +
+                String(t4);
+              total += 1;
+              total_div.innerText =
+                total_div.innerText.slice(0, 9) + String(total);
+              break;
+            case 5:
+              name = "워그레이몬";
+              t5 += 1;
+              document.getElementById(`${t}`).innerText =
+                document.getElementById(`${t}`).innerText.slice(0, 5) +
+                String(t5);
+              total += 1;
+              total_div.innerText =
+                total_div.innerText.slice(0, 9) + String(total);
+              break;
+            case 6:
+              name = "워그레이몬X";
+              t6 += 1;
+              document.getElementById(`${t}`).innerText =
+                document.getElementById(`${t}`).innerText.slice(0, 5) +
+                String(t6);
+              total += 1;
+              total_div.innerText =
+                total_div.innerText.slice(0, 9) + String(total);
+              alert(`플레이어 1님이 초궁극체 ${name}을 뽑았습니다.`);
+              break;
+            case 7:
+              name = "오메가몬";
+              t7 += 1;
+              document.getElementById(`${t}`).innerText =
+                document.getElementById(`${t}`).innerText.slice(0, 5) +
+                String(t7);
+              total += 1;
+              total_div.innerText =
+                total_div.innerText.slice(0, 9) + String(total);
+              alert(`플레이어 1님이 죠그레스 ${name}을 뽑았습니다.`);
+              break;
+            case 8:
+              name = "오메가몬X";
+              t8 += 1;
+              document.getElementById(`${t}`).innerText =
+                document.getElementById(`${t}`).innerText.slice(0, 5) +
+                String(t8);
+              total += 1;
+              total_div.innerText =
+                total_div.innerText.slice(0, 9) + String(total);
+              alert(`플레이어 1님이 로얄나이츠 ${name}을 뽑았습니다.`);
+              break;
+            case 9:
+              name = "오메가몬머시풀모드";
+              t9 += 1;
+              document.getElementById(`${t}`).innerText =
+                document.getElementById(`${t}`).innerText.slice(0, 5) +
+                String(t9);
+              total += 1;
+              total_div.innerText =
+                total_div.innerText.slice(0, 9) + String(total);
+              alert(`플레이어 1님이 히든 ${name}을 뽑았습니다.`);
+              break;
+          }
+        } else if (monster_type === 1) {
+          switch (t) {
+            case 0:
+              name = "치코몬";
+              t0 += 1;
+              document.getElementById(`${t}`).innerText =
+                document.getElementById(`${t}`).innerText.slice(0, 5) +
+                String(t0);
+              total += 1;
+              total_div.innerText =
+                total_div.innerText.slice(0, 9) + String(total);
+              break;
+            case 1:
+              name = "꼬마몬";
+              t1 += 1;
+              document.getElementById(`${t}`).innerText =
+                document.getElementById(`${t}`).innerText.slice(0, 5) +
+                String(t1);
+              total += 1;
+              total_div.innerText =
+                total_div.innerText.slice(0, 9) + String(total);
+              break;
+            case 2:
+              name = "브이몬";
+              t2 += 1;
+              document.getElementById(`${t}`).innerText =
+                document.getElementById(`${t}`).innerText.slice(0, 5) +
+                String(t2);
+              total += 1;
+              total_div.innerText =
+                total_div.innerText.slice(0, 9) + String(total);
+              break;
+            case 3:
+              name = "엑스브이몬";
+              t3 += 1;
+              document.getElementById(`${t}`).innerText =
+                document.getElementById(`${t}`).innerText.slice(0, 5) +
+                String(t3);
+              total += 1;
+              total_div.innerText =
+                total_div.innerText.slice(0, 9) + String(total);
+              break;
+            case 4:
+              name = "파일드라몬";
+              t4 += 1;
+              document.getElementById(`${t}`).innerText =
+                document.getElementById(`${t}`).innerText.slice(0, 5) +
+                String(t4);
+              total += 1;
+              total_div.innerText =
+                total_div.innerText.slice(0, 9) + String(total);
+              break;
+            case 5:
+              name = "황제드라몬";
+              t5 += 1;
+              document.getElementById(`${t}`).innerText =
+                document.getElementById(`${t}`).innerText.slice(0, 5) +
+                String(t5);
+              total += 1;
+              total_div.innerText =
+                total_div.innerText.slice(0, 9) + String(total);
+              break;
+            case 6:
+              name = "황제드라몬FM";
+              t6 += 1;
+              document.getElementById(`${t}`).innerText =
+                document.getElementById(`${t}`).innerText.slice(0, 5) +
+                String(t6);
+              total += 1;
+              total_div.innerText =
+                total_div.innerText.slice(0, 9) + String(total);
+              alert(`플레이어 1님이 초궁극체 ${name}을 뽑았습니다.`);
+              break;
+            case 7:
+              name = "황제드라몬PM";
+              t7 += 1;
+              document.getElementById(`${t}`).innerText =
+                document.getElementById(`${t}`).innerText.slice(0, 5) +
+                String(t7);
+              total += 1;
+              total_div.innerText =
+                total_div.innerText.slice(0, 9) + String(total);
+              alert(`플레이어 1님이 죠그레스 ${name}을 뽑았습니다.`);
+              break;
+            case 8:
+              name = "알포스X";
+              t8 += 1;
+              document.getElementById(`${t}`).innerText =
+                document.getElementById(`${t}`).innerText.slice(0, 5) +
+                String(t8);
+              total += 1;
+              total_div.innerText =
+                total_div.innerText.slice(0, 9) + String(total);
+              alert(`플레이어 1님이 로얄나이츠 ${name}을 뽑았습니다.`);
+              break;
+            case 9:
+              name = "베르제브몬";
+              t9 += 1;
+              document.getElementById(`${t}`).innerText =
+                document.getElementById(`${t}`).innerText.slice(0, 5) +
+                String(t9);
+              total += 1;
+              total_div.innerText =
+                total_div.innerText.slice(0, 9) + String(total);
+              alert(`플레이어 1님이 히든 ${name}을 뽑았습니다.`);
+              break;
+          }
+        } else {
+          switch (t) {
+            case 0:
+              name = "쟈리몬";
+              t0 += 1;
+              document.getElementById(`${t}`).innerText =
+                document.getElementById(`${t}`).innerText.slice(0, 5) +
+                String(t0);
+              total += 1;
+              total_div.innerText =
+                total_div.innerText.slice(0, 9) + String(total);
+              break;
+            case 1:
+              name = "기기몬";
+              t1 += 1;
+              document.getElementById(`${t}`).innerText =
+                document.getElementById(`${t}`).innerText.slice(0, 5) +
+                String(t1);
+              total += 1;
+              total_div.innerText =
+                total_div.innerText.slice(0, 9) + String(total);
+              break;
+            case 2:
+              name = "길몬";
+              t2 += 1;
+              document.getElementById(`${t}`).innerText =
+                document.getElementById(`${t}`).innerText.slice(0, 5) +
+                String(t2);
+              total += 1;
+              total_div.innerText =
+                total_div.innerText.slice(0, 9) + String(total);
+              break;
+            case 3:
+              name = "그라우몬";
+              t3 += 1;
+              document.getElementById(`${t}`).innerText =
+                document.getElementById(`${t}`).innerText.slice(0, 5) +
+                String(t3);
+              total += 1;
+              total_div.innerText =
+                total_div.innerText.slice(0, 9) + String(total);
+              break;
+            case 4:
+              name = "메가로그라우몬";
+              t4 += 1;
+              document.getElementById(`${t}`).innerText =
+                document.getElementById(`${t}`).innerText.slice(0, 5) +
+                String(t4);
+              total += 1;
+              total_div.innerText =
+                total_div.innerText.slice(0, 9) + String(total);
+              break;
+            case 5:
+              name = "듀크몬";
+              t5 += 1;
+              document.getElementById(`${t}`).innerText =
+                document.getElementById(`${t}`).innerText.slice(0, 5) +
+                String(t5);
+              total += 1;
+              total_div.innerText =
+                total_div.innerText.slice(0, 9) + String(total);
+              break;
+            case 6:
+              name = "메기드라몬";
+              t6 += 1;
+              document.getElementById(`${t}`).innerText =
+                document.getElementById(`${t}`).innerText.slice(0, 5) +
+                String(t6);
+              total += 1;
+              total_div.innerText =
+                total_div.innerText.slice(0, 9) + String(total);
+              alert(`플레이어 1님이 초궁극체 ${name}을 뽑았습니다.`);
+              break;
+            case 7:
+              name = "듀크몬CM";
+              t7 += 1;
+              document.getElementById(`${t}`).innerText =
+                document.getElementById(`${t}`).innerText.slice(0, 5) +
+                String(t7);
+              total += 1;
+              total_div.innerText =
+                total_div.innerText.slice(0, 9) + String(total);
+              alert(`플레이어 1님이 죠그레스 ${name}을 뽑았습니다.`);
+              break;
+            case 8:
+              name = "듀크몬X";
+              t8 += 1;
+              document.getElementById(`${t}`).innerText =
+                document.getElementById(`${t}`).innerText.slice(0, 5) +
+                String(t8);
+              total += 1;
+              total_div.innerText =
+                total_div.innerText.slice(0, 9) + String(total);
+              alert(`플레이어 1님이 로얄나이츠 ${name}을 뽑았습니다.`);
+              break;
+            case 9:
+              name = "알파몬왕룡검";
+              t9 += 1;
+              document.getElementById(`${t}`).innerText =
+                document.getElementById(`${t}`).innerText.slice(0, 5) +
+                String(t9);
+              total += 1;
+              total_div.innerText =
+                total_div.innerText.slice(0, 9) + String(total);
+              alert(`플레이어 1님이 히든 ${name}을 뽑았습니다.`);
+              break;
+          }
+        }
+        div.innerText += ` ${name}`;
+      };
+
+      button.addEventListener("click", onRoulette);
+      window.addEventListener("keydown", (e) => {
+        if (e.keyCode === 81) {
+          onRoulette();
+        }
+      });
+    </script>
+  </body>
+</html>
