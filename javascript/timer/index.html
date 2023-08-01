@@ -64,6 +64,7 @@
       let break_flag = false;
       break_count = parseInt(localStorage.getItem("break_count"));
       count = parseInt(localStorage.getItem("count"));
+
       if (count) {
         root_setting.innerText = `# ${count} study!!`;
       } else {
@@ -99,6 +100,8 @@
               tmp = String(parseInt(minute.innerText) - 1);
               if (tmp.length < 2) {
                 minute.innerText = "0" + tmp;
+              } else {
+                minute.innerText = tmp;
               }
               second.innerText = "59";
             } else {
