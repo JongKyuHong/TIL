@@ -3,7 +3,7 @@ import Timer from "./src/component/Timer";
 
 const Pomodoro = () => {
   const [isSelectedBtn, setSelectedBtn] = useState("Pomodoro");
-
+  const [isClicked, setClicked] = useState(false);
   // pomodoro button
   // Short Break button
   // Long Break button
@@ -29,7 +29,7 @@ const Pomodoro = () => {
     margin: "20 0 0",
     padding: "0 12",
     border: "none",
-    boxShadow: "1px 2px 9px",
+    boxShadow: isClicked ? "" : "0px -7px 0px rgb(235,235,235)",
     borderRadius: "5px",
   };
 
@@ -47,6 +47,14 @@ const Pomodoro = () => {
     e.target.style.backgroundColor = "rgb(186, 73, 73)";
   };
 
+  const OnClicked_StartBtn = (e) => {
+    setClicked(!isClicked);
+    if (e.target.innerText === "START") {
+      e.target.innerText = "Pause";
+    } else {
+      e.target.innerText = "START";
+    }
+  };
   return (
     <div className="root_div">
       <div className="screen">
@@ -62,7 +70,9 @@ const Pomodoro = () => {
           </button>
         </div>
         <Timer></Timer>
-        <button style={btn_style}>Start</button>
+        <button style={btn_style} onClick={OnClicked_StartBtn}>
+          START
+        </button>
       </div>
     </div>
   );
