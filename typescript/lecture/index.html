@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .root {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .timer {
+        display: flex;
+        flex-direction: row;
+      }
+      div {
+        font: bold;
+        font-size: 100px;
+      }
+      .start_button {
+        width: 300px;
+        font-size: 50px;
+      }
+      label {
+        font-size: 30px;
+      }
+      .state > button {
+        width: 100px;
+        font-size: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="root">
+      <label class="root_setting">#1 study!!</label>
+      <div class="state">
+        <button class="study_button">study</button>
+        <button class="break_button">break</button>
+      </div>
+      <div class="timer">
+        <div class="minute">25</div>
+        <div>:</div>
+        <div class="second">00</div>
+      </div>
+      <button class="start_button">Start</button>
+    </div>
+
+    <script src="index.js"></script>
+  </body>
+</html>
