@@ -8,6 +8,10 @@ const Pomodoro = () => {
   const [count, setCount] = useState(1);
   const [break_count, setBreakCount] = useState(1);
   const [label_value, setLabelValue] = useState("");
+  const [default_miunute, setMinute] = useState("25");
+  const [default_second, setSecond] = useState("00");
+  const [default_break_minute, setBminute] = useState("00");
+  const [default_break_second, setBsecond] = useState("10");
 
   useEffect(() => {
     let tmp = localStorage.getItem("count");
@@ -22,6 +26,7 @@ const Pomodoro = () => {
   }, []);
 
   useEffect(() => {
+    console.log(flag, "pomodoro_flag");
     if (flag) {
       setLabelValue(`#${count} study!!`);
     } else {
@@ -53,6 +58,23 @@ const Pomodoro = () => {
     }
   };
 
+  const onChangeTime = (time: string, val: number) => {
+    if (flag) {
+      // study면
+      if (val === 1) {
+        setMinute(time);
+      } else {
+        setSecond(time);
+      }
+    } else {
+      if (val === 1) {
+        setBminute(time);
+      } else {
+        setBsecond(time);
+      }
+    }
+  };
+
   return (
     <>
       <label>{label_value}</label>
@@ -60,7 +82,14 @@ const Pomodoro = () => {
         <button onClick={onBtnClick}>Study</button>
         <button onClick={onBtnClick}>Break</button>
       </div>
-      <Timer flag={flag} onChangeflag={onChangeflag} />
+
+      <Timer
+        flag={flag}
+        onChangeflag={onChangeflag}
+        onChangeTime={onChangeTime}
+        default_minute={flag ? default_miunute : default_break_minute}
+        default_second={flag ? default_second : default_break_second}
+      />
     </>
   );
 };

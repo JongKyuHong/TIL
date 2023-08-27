@@ -8,6 +8,10 @@ var Pomodoro = function () {
     var _b = (0, react_1.useState)(1), count = _b[0], setCount = _b[1];
     var _c = (0, react_1.useState)(1), break_count = _c[0], setBreakCount = _c[1];
     var _d = (0, react_1.useState)(""), label_value = _d[0], setLabelValue = _d[1];
+    var _e = (0, react_1.useState)("25"), default_miunute = _e[0], setMinute = _e[1];
+    var _f = (0, react_1.useState)("00"), default_second = _f[0], setSecond = _f[1];
+    var _g = (0, react_1.useState)("00"), default_break_minute = _g[0], setBminute = _g[1];
+    var _h = (0, react_1.useState)("10"), default_break_second = _h[0], setBsecond = _h[1];
     (0, react_1.useEffect)(function () {
         var tmp = localStorage.getItem("count");
         var tmp2 = localStorage.getItem("break_count");
@@ -21,6 +25,7 @@ var Pomodoro = function () {
         }
     }, []);
     (0, react_1.useEffect)(function () {
+        console.log(flag, "pomodoro_flag");
         if (flag) {
             setLabelValue("#".concat(count, " study!!"));
         }
@@ -49,11 +54,30 @@ var Pomodoro = function () {
             setFlag(true);
         }
     };
+    var onChangeTime = function (time, val) {
+        if (flag) {
+            // study면
+            if (val === 1) {
+                setMinute(time);
+            }
+            else {
+                setSecond(time);
+            }
+        }
+        else {
+            if (val === 1) {
+                setBminute(time);
+            }
+            else {
+                setBsecond(time);
+            }
+        }
+    };
     return (React.createElement(React.Fragment, null,
         React.createElement("label", null, label_value),
         React.createElement("div", { className: "state" },
             React.createElement("button", { onClick: onBtnClick }, "Study"),
             React.createElement("button", { onClick: onBtnClick }, "Break")),
-        React.createElement(Timer_1.default, { flag: flag, onChangeflag: onChangeflag })));
+        React.createElement(Timer_1.default, { flag: flag, onChangeflag: onChangeflag, onChangeTime: onChangeTime, default_minute: flag ? default_miunute : default_break_minute, default_second: flag ? default_second : default_break_second })));
 };
 exports.default = Pomodoro;
