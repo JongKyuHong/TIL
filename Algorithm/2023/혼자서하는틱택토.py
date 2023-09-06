@@ -17,7 +17,6 @@ def solution(board):
         ans['X'] += X_count
         ans['O'] += O_count
     
-    #print(ans, X_flag, O_flag)
     # 세로 확인
     for j in range(3):
         X_count, O_count = 0, 0
@@ -30,8 +29,6 @@ def solution(board):
             X_flag = 1
         if O_count == 3:
             O_flag = 1
-    
-    #print(ans, X_flag, O_flag)
 
     # 대각선
     X_count, O_count = 0, 0
