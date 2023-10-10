@@ -1,9 +1,9 @@
-a = 18500
-cnt = 24
+a = 23750   
+cnt = 31
 total = a
 while cnt < 56:
-    a += 750    
+    a += 750
     cnt += 1
     total += a
 print(total)
-print(total/50)
+print(total/42)

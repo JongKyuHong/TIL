@@ -2,28 +2,28 @@ import heapq
 import sys 
 input = sys.stdin.readline
 
-n, m = map(int, input().split())
-array = [[] for i in range(n + 1)]
-indegree = [0] * (n + 1)
-heap = []
-result = []
-for _ in range(m):
-    x, y = map(int, input().split())
-    array[x].append(y)
-    indegree[y] += 1
+N, M = map(int, input().split())
+lst = [[] for i in range(N + 1)]
+indegree = [0]*(N+1)
+q = []
+for i in range(M):
+    a, b = map(int, input().split())
+    indegree[b] += 1
+    lst[a].append(b) # b보다 a가 먼저 있어야함    
 
-for i in range(1, n + 1):
+for i in range(1, N+1):
     if indegree[i] == 0:
-        heapq.heappush(heap, i)
+        heapq.heappush(q, i)
 
 result = []
-while heap:
-    data = heapq.heappop(heap)
-    result.append(data)
-    for y in array[data]:
-        indegree[y] -= 1
-        if indegree[y] == 0:
-            heapq.heappush(heap, y)
-            
+while q:
+    now = heapq.heappop(q)
+    result.append(now)
+    for i in lst[now]:
+        indegree[i] -= 1
+        if indegree[i] == 0:
+            heapq.heappush(q, i)
+
 for i in result:
     print(i, end=' ')
+
