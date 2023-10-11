@@ -14,7 +14,7 @@ for _ in range(T):
             heapq.heappush(maxQ, [-int(input_[1]), i])
             heapq.heappush(minQ, [int(input_[1]), i])
         else:
-            if input_[1] == '1': # 최대값 삭제
+            if input_[1] == '1':
                 while maxQ:
                     value, idx = heapq.heappop(maxQ)
                     if not visited[idx]:
@@ -26,23 +26,20 @@ for _ in range(T):
                     if not visited[idx]:
                         visited[idx] = 1
                         break
-    if minQ and maxQ:
-        answer1 = INF
-        while maxQ:
-            value, idx = heapq.heappop(maxQ)
-            if not visited[idx]:
-                answer1 = -value
-                break
-        answer2 = -INF
-        while minQ:
-            value, idx = heapq.heappop(minQ)
-            if not visited[idx]:
-                answer2 = value
-                break
-        if answer1 != INF and answer2 != INF:
-            print(answer1, answer2)
-        else:
-            print('EMPTY')
+    answer1 = INF
+    while maxQ:
+        value, idx = heapq.heappop(maxQ)
+        if not visited[idx]:
+            answer1 = -value
+            break
+    answer2 = -INF
+    while minQ:
+        value, idx = heapq.heappop(minQ)
+        if not visited[idx]:
+            answer2 = value
+            break
+    if answer1 != INF and answer2 != INF:
+        print(answer1, answer2)
     else:
-        print("EMPTY")
+        print('EMPTY')
     
