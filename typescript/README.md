@@ -34,7 +34,6 @@
 
 # 타입 애일리어스와 인터페이스의 상속
 
-    ```typescript
         type Animal = {breath: true};
         type Mammalia = Animal & {breed: true};
         type Human = Mammalia & {think: true};
@@ -51,7 +50,7 @@
 
         const b: B = {breath:true, breed:true};
         const me2: Human = {breath:true, breed:true, think:true};
-    ```
+
     - interface는 같은 이름으로 여러번 선언할 수 있는데
     - 선언할때마다 합쳐짐 ( 확장하기가 좋다 )
     - 남의 라이브러리 코드를 수정하든지 확장하여 사용하기가 좋다.
@@ -79,7 +78,6 @@
 
 ## 타입가드 ( 타입 좁히기 )
 
-    ```typescript
     function numOrNumArray(a: number | number[]) {
         if (Array.isArray(a)){
             a.concat(4);
@@ -150,7 +148,6 @@
             console.log(a.meow);
         }
     }
-    ```
 
 # {}와 Object
 
@@ -160,7 +157,6 @@
 
 # readonly, 인덱스드 시그니처, 맵드 타입스
 
-    ```typescript
         interface A {
             readonly a: string,
             b: string
@@ -177,4 +173,63 @@
         type B = 'Human' | 'Mammal' | 'Animal';
         type A = {[key in B]: B};
         const aaaa5: A = {Human: 'Animal' , Mammal:'Human', Animal:'Mammal'}
-    ```
+
+# class
+
+    - class에 private, protected 추가
+    - 기본은 public
+    - private 클래스 안에서만 사용가능
+    - protected 상속받은 곳에서도 사용가능
+    - implement로 interface구현
+    - abstract class, method존재
+    - 클래스를 상속받을때 abstract method는 반드시 구현해야함
+
+# optional
+
+        function abc(a: number, b?: number, c: number?) {}
+        abc(1)
+        abc(1, 2)
+        abc(1, 2, 3)
+
+        let obj: { a: string, b?: string }  = { a: 'hello', b: 'world' }
+        obj = { a: 'hello' };
+
+# 제네릭
+
+    * 타입에 대한 함수
+        function add<T>(x: T, y: T): T { return x + y }
+        add<number>(1, 2);
+        add(1, 2);
+        add<string>('1', '2');
+        add('1', '2');
+        add(1, '2');
+
+
+        // 제네릭 선언 위치 기억하기
+        function a<T>() {}
+        class B<T>() {}
+        interface C<T> {}
+        type D<T> = {};
+        const e = <T>() => {};
+
+        // 제네릭 기본값, extends
+        function add<T extends string>(x: T, y: T): T { return x + y }
+        add(1, 2);
+        add('1', '2')
+
+# 공변성 반공변성
+
+    * 리턴값은 더 넓은 타입이면 대입가능
+    * 매개변수는 더 좁은 타입이면 대입가능
+
+# Partial
+
+    * 필수값들을 옵셔널로 사용할 수 있음
+
+# Pick
+
+    * 특정 속성만 가져올 수 있음
+
+# Omit
+
+    * 특정 속성만 거를 수 있음

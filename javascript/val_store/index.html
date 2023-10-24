@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>val상점</title>
+    <style>
+      #root {
+        display: flex;
+        flex-direction: column;
+      }
+      img {
+        width: 400px;
+        height: 150px;
+        margin: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script>
+      let skin_count = 14;
+      let numbers = [];
+      for (let i = 1; i < skin_count + 1; i++) {
+        numbers.push(i);
+      }
+      let answer = [];
+      for (let i = 0; i < 4; i++) {
+        let index = Math.floor(Math.random() * (skin_count - i));
+        answer.push(numbers[index]);
+        numbers.splice(index, 1);
+      }
+
+      let root = document.getElementById("root");
+      for (let i = 0; i < 4; i++) {
+        let div = document.createElement("div");
+        let img = document.createElement("img");
+        img.setAttribute("src", `./src/${answer[i]}.png`);
+        div.appendChild(img);
+        root.appendChild(div);
+      }
+    </script>
+  </body>
+</html>
